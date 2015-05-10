@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/apk/res/android">
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <array name="snooze_dismiss_descriptions">
+        <item>dismiss</item>
+        <item>dismiss</item>
+        <item>dismiss</item>
+        <item>dismiss</item>
+    </array>
+    <array name="snooze_dismiss_direction_descriptions">
+        <item>right</item>
+        <item>right</item>
+        <item>right</item>
+        <item>right</item>
+    </array>
+    <array name="snooze_dismiss_drawables">
+        <item>@drawable/ic_item_15min</item>
+        <item>@drawable/ic_item_10min</item>
+        <item>@drawable/ic_item_5min</item>
+        <item>@drawable/ic_item_unlock</item>
+    </array>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/attrs.xml -->
+    <eat-comment/>
+    <attr name="direction">
+        <enum name="rightToLeft" value="0"/>
+        <enum name="bottomToTop" value="1"/>
+        <enum name="leftToRight" value="2"/>
+        <enum name="topToBottom" value="3"/>
+    </attr>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="ampm_text_color">#8c8c8c</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="black">#000000</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="blue">#ff33b5e5</color>
+    <color name="calendar_header">#ff999999</color>
+    <color name="circle_background">#fff2f2f2</color>
+    <color name="darker_blue">#ff0099cc</color>
+    <color name="date_picker_text_normal">#ff999999</color>
+    <color name="date_picker_view_animator">#fff2f2f2</color>
+    <color name="done_text_color_disabled">#ffcccccc</color>
+    <color name="done_text_color_normal">#ff333333</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="gray">#b4b4b4</color>
+    <color name="light_gray">#eeeeee</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="line_background">#ffcccccc</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="main_color">#66ccff</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="numbers_text_color">#8c8c8c</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="press_color">#23b5fe</color>
+    <color name="red">#ff0000</color>
+    <color name="transparent_background">#99000000</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <color name="transparent_black">#7F000000</color>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="white">#ffffff</color>
+    <declare-styleable name="AnalogClock"><attr format="dimension" name="jewelRadius"/><attr format="dimension" name="jewelOffset"/><attr format="color" name="jewelColor"/></declare-styleable>
+    <declare-styleable name="GlowPadView"><attr name="android:gravity"/><attr format="reference" name="targetDrawables"/><attr format="reference" name="targetDescriptions"/><attr format="reference" name="directionDescriptions"/><attr format="reference" name="handleDrawable"/><attr format="reference" name="outerRingDrawable"/><attr format="reference" name="pointDrawable"/><attr format="dimension" name="innerRadius"/><attr format="dimension" name="outerRadius"/><attr format="dimension" name="glowRadius"/><attr format="integer" name="vibrationDuration"/><attr format="dimension" name="snapMargin"/><attr format="integer" name="feedbackCount"/><attr format="boolean" name="alwaysTrackFinger"/></declare-styleable>
+    <declare-styleable name="MultiDirectionSlidingDrawer"><attr format="reference" name="handle"/><attr format="reference" name="content"/><attr name="direction"/><attr format="dimension" name="bottomOffset"/><attr format="dimension" name="topOffset"/><attr format="boolean" name="allowSingleTap"/><attr format="boolean" name="animateOnClick"/></declare-styleable>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="ampm_label_size">16sp</dimen>
+    <dimen name="ampm_left_padding">6dip</dimen>
+    <dimen name="date_picker_component_width">270dip</dimen>
+    <dimen name="date_picker_header_height">30dip</dimen>
+    <dimen name="date_picker_header_text_size">14dip</dimen>
+    <dimen name="date_picker_view_animator_height">270dip</dimen>
+    <dimen name="day_number_select_circle_radius">16dip</dimen>
+    <dimen name="day_number_size">16sp</dimen>
+    <dimen name="done_label_size">14sp</dimen>
+    <dimen name="extra_time_label_margin">-30dp</dimen>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/glowPadView/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="glowpadview_glow_radius">75dip</dimen>
+    <dimen name="glowpadview_inner_radius">15dip</dimen>
+    <dimen name="glowpadview_margin_bottom">-64dip</dimen>
+    <dimen name="glowpadview_margin_right">15dip</dimen>
+    <dimen name="glowpadview_outerring_diameter">270dip</dimen>
+    <dimen name="glowpadview_snap_margin">40dip</dimen>
+    <dimen name="glowpadview_target_placement_radius">135dip</dimen>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="header_height">96dip</dimen>
+    <dimen name="minimum_margin_sides">48dip</dimen>
+    <dimen name="minimum_margin_top_bottom">24dip</dimen>
+    <dimen name="month_day_label_text_size">10sp</dimen>
+    <dimen name="month_label_size">16sp</dimen>
+    <dimen name="month_list_item_header_height">50dip</dimen>
+    <dimen name="month_select_circle_radius">45dip</dimen>
+    <dimen name="picker_dimen">270dip</dimen>
+    <dimen name="selected_calendar_layout_height">155dip</dimen>
+    <dimen name="selected_date_day_size">75dip</dimen>
+    <dimen name="selected_date_month_size">30dip</dimen>
+    <dimen name="selected_date_year_size">30dip</dimen>
+    <dimen name="separator_padding">4dip</dimen>
+    <dimen name="time_label_size">60sp</dimen>
+    <dimen name="year_label_height">64dip</dimen>
+    <dimen name="year_label_text_size">22dip</dimen>
+    <item name="animator" type="id">false</item>
+    <item name="date_picker_day" type="id">false</item>
+    <item name="date_picker_header" type="id">false</item>
+    <item name="date_picker_month" type="id">false</item>
+    <item name="date_picker_month_and_day" type="id">false</item>
+    <item name="date_picker_year" type="id">false</item>
+    <item name="day_picker_selected_date_layout" type="id">false</item>
+    <item name="done" type="id">false</item>
+    <item name="month_text_view" type="id">false</item>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">Settings</string>
+    <string name="already_have_count"><u>已有DO.OR账户？</u></string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <item format="float" name="ampm_circle_radius_multiplier" type="string">0.19</item>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Do.or</string>
+    <string name="bottom"><u>稍后创建用户，仅体验最小功能</u></string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <item format="float" name="circle_radius_multiplier" type="string">0.82</item>
+    <item format="float" name="circle_radius_multiplier_24HourMode" type="string">0.85</item>
+    <string name="day_picker_description">Month grid of days</string>
+    <string name="deleted_key"><ns1:g example="4" id="key">%1$s</ns1:g> deleted</string>
+    <string name="done_label">确认</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="drawer_close">好友管理</string>
+    <string name="drawer_open">好友管理</string>
+    <string name="friends">好友管理</string>
+    <string name="header_text">完美体验DO.OR</string>
+    <string name="header_text2">体验DO.OR基本功能</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="hour_picker_description">Hours circular slider</string>
+    <string name="item_is_selected">%1$s selected</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="later_binding"><u>稍后绑定手机，仅体验基本功能</u></string>
+    <string name="login_count">账号</string>
+    <string name="login_header1">登录DO.OR</string>
+    <string name="login_header2">如果您未绑定人人</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="minute_picker_description">Minutes circular slider</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="nickname">昵称</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <item format="float" name="numbers_radius_multiplier_inner" type="string">0.60</item>
+    <item format="float" name="numbers_radius_multiplier_normal" type="string">0.81</item>
+    <item format="float" name="numbers_radius_multiplier_outer" type="string">0.83</item>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="password">密码</string>
+    <string name="phonebind_header">更好的使用DO.OR</string>
+    <string name="phonebind_header2">将DO.OR账号与手机号绑定将为您带来更好的体验\n我们承诺不会泄露您的信息，也不会带来额外开销</string>
+    <string name="phonenumber">手机号</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="radial_numbers_typeface" translatable="false">sans-serif</string>
+    <string name="sans_serif" translatable="false">sans-serif</string>
+    <string name="select_day">Select month and day</string>
+    <string name="select_hours">Select hours</string>
+    <string name="select_minutes">Select minutes</string>
+    <string name="select_year">Select year</string>
+    <item format="float" name="selection_radius_multiplier" type="string">0.16</item>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="start_using">开始使用</string>
+    <string name="startnewlife">开启全新生活体验</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <item format="float" name="text_size_multiplier_inner" type="string">0.14</item>
+    <item format="float" name="text_size_multiplier_normal" type="string">0.17</item>
+    <item format="float" name="text_size_multiplier_outer" type="string">0.11</item>
+    <string name="time_placeholder" translatable="false">--</string>
+    <string name="time_separator" translatable="false">:</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="username">用户名</string>
+    <string name="yanzhengma">验证码</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="year_picker_description">Year list</string>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">  
+        <item name="android:actionBarStyle">@style/myActionBarStyle</item>  
+    </style>
+    <style name="MyDialog" parent="@android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item> 
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="RadioButtonStyles">
+        <item name="android:button">@drawable/radio_selector</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    <style name="Theme.Translucent" parent="android:style/Theme.Translucent">
+        <item name="android:windowBackground">@color/transparent_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="ampm_label">
+        <item name="android:textSize">@dimen/ampm_label_size</item>
+        <item name="android:textColor">@color/ampm_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="day_of_week_label_condensed"/>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="myActionBarStyle" parent="android:Widget.ActionBar">  
+        <item name="android:background">#66ccff</item>  
+        <item name="android:displayOptions">showHome</item>
+    </style>
+    <style name="myLightStyle" parent="android:Theme.Light.NoTitleBar">
+        
+    </style>
+    <style name="mystyle" parent="android:Animation">  
+        <item name="@android:windowEnterAnimation">@anim/head_in</item>  //进入时的动画   
+        <item name="@android:windowExitAnimation">@anim/head_out</item>    //退出时的动画   
+    </style>
+    <!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/intermediates/exploded-aar/door/datetimepickerlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <style name="time_label">
+        <item name="android:textSize">@dimen/time_label_size</item>
+        <item name="android:textColor">@color/numbers_text_color</item>
+    </style>
+</resources>

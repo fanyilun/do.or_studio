@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="snooze_dismiss_drawables">
+        <item>@drawable/ic_item_15min</item>
+        <item>@drawable/ic_item_10min</item>
+        <item>@drawable/ic_item_5min</item>
+        <item>@drawable/ic_item_unlock</item>
+    </array>
+    <array name="snooze_dismiss_descriptions">
+        <item>dismiss</item>
+        <item>dismiss</item>
+        <item>dismiss</item>
+        <item>dismiss</item>
+    </array>
+    <array name="snooze_dismiss_direction_descriptions">
+        <item>right</item>
+        <item>right</item>
+        <item>right</item>
+        <item>right</item>
+    </array>
+
+</resources>

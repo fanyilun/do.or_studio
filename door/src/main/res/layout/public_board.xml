@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout 
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        >
+        <LinearLayout 
+            android:id="@+id/public_sign"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_bg_selector"
+            >
+            <ImageView 
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/sign"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="签到"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                />
+        </LinearLayout>
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:text="在规定时间内签到才有效哦"/>
+        
+    </LinearLayout>
+    
+    <com.geeker.door.utils.PinnedHeaderListView
+	    android:id="@+id/listview2" 
+	    android:layout_width="fill_parent"
+	    android:footerDividersEnabled="false"
+	    android:headerDividersEnabled="false"
+	    android:layout_height="match_parent"
+	    android:layout_below="@id/linear1"
+	    android:layout_marginBottom="15dp"
+	    />
+ 	<com.geeker.door.utils.MultiDirectionSlidingDrawer
+        xmlns:my="http://schemas.android.com/apk/res/com.geeker.door"
+        android:id="@+id/drawer"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        my:content="@+id/content"
+        my:direction="bottomToTop"
+        my:handle="@+id/handle"
+        android:layout_height="120dp"
+        >
+
+        <include
+            android:id="@id/content"
+            layout="@layout/bottomlayout" />
+
+         <ImageView 
+        android:id="@+id/handle"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:src="@drawable/handle"
+        android:background="#434343"
+        android:scaleType="centerInside"
+        />
+    </com.geeker.door.utils.MultiDirectionSlidingDrawer>
+
+</RelativeLayout>

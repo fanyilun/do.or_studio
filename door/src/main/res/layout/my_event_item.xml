@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.geeker.door.utils.SlidingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="fill_parent"
+    android:layout_height="85dp" >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="85dp">
+    <LinearLayout 
+        android:id="@+id/linear1"
+        android:layout_width="65dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        >
+        <ImageView 
+            android:layout_width="1dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/black_bg"/>
+        <ImageView 
+            android:id="@+id/content_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/item_alarm"
+            />
+        <TextView 
+            android:id="@+id/add_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00 : 00"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/press_color"
+			android:textSize="17sp"            
+            />
+        <ImageView 
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/black_bg"/>
+    </LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/edit_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:layout_alignParentRight="true"
+	    android:paddingLeft="10dp"
+	    android:layout_toRightOf="@id/linear1"
+	    >
+	    <TextView 
+	        android:id="@+id/subcontent"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="此处作为标签或时间"
+	        android:layout_marginLeft="4dp"
+	        android:layout_marginTop="10dp"
+	        android:textColor="@color/black"
+	        android:textSize="16sp"
+	        />
+	    <com.geeker.door.utils.CustomTextView
+	        android:id="@+id/content"
+	        android:layout_width="wrap_content"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="15 : 04"
+	        android:textColor="@color/black"
+	        android:textSize="30sp"/>
+	    
+	   
+	</LinearLayout>
+
+	<ImageButton
+	    android:id="@+id/item_button"
+	    android:layout_width="30dp"
+	    android:layout_height="30dp"
+	    android:layout_alignParentRight="true"
+	    android:layout_centerVertical="true"
+	    android:layout_marginRight="5dp"
+	    android:background="@null"
+	    android:scaleType="centerInside"
+	    android:src="@drawable/add_friends_selector" />
+	
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="25dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginLeft="205dp"
+	    android:layout_marginBottom="4dp"
+	    android:orientation="horizontal"
+	    >
+	    <!--  <ImageView 
+	        android:layout_width="20dp"
+	        android:layout_height="20dp"
+	        android:src="@drawable/item_snap"/>-->
+	</LinearLayout>
+
+</RelativeLayout>
+
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radiobutton_bg_selector"
+            android:text="删除" >
+        </Button>
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/radiobutton_bg_selector"
+            android:layout_height="wrap_content"
+            android:text=" 完成" >
+        </Button>
+    </LinearLayout>
+</com.geeker.door.utils.SlidingLayout>

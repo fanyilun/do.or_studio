@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/button_pressed_color_dark" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/button_pressed_color" android:state_pressed="false"></item>
+</selector>
+<!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/drawable-hdpi/button_bg_dark_selector.xml -->

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
+<LinearLayout 
+    android:layout_width="360dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+    >
+
+        <TextView
+            android:id="@+id/bindingphone_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:gravity="center_horizontal"
+            android:text="@string/phonebind_header"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="60dp"
+            android:layout_toLeftOf="@+id/bindingphone_header"
+            android:background="@drawable/login_line"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="60dp"
+            android:layout_toRightOf="@+id/bindingphone_header"
+            android:background="@drawable/login_line"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bindingphone_header2"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+          	android:gravity="center"
+            android:text="@string/phonebind_header2" />
+
+    </RelativeLayout>
+	
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+       >
+
+        <Button
+            android:id="@+id/bindingphone_imageButton1"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/radiobutton_bg_selector"
+            android:text="获取验证码"
+            android:visibility="gone"
+            android:textSize="22sp"
+            android:textColor="#ffffff"/>
+        
+
+            <TextView
+                android:id="@+id/bindingphone_username_text"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+               	android:layout_alignParentLeft="true"
+               	android:layout_marginLeft="30dp"
+               	android:layout_alignParentTop="true"
+               	android:layout_marginTop="20dp"
+                android:background="@drawable/text_bg"
+                android:gravity="center"
+                android:text="@string/phonenumber" 
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/bindingphone_edit2"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+              	android:layout_alignParentRight="true"
+              	android:layout_marginRight="30dp"
+              	android:layout_alignParentTop="true"
+              	android:layout_marginTop="20dp"
+            	android:layout_toRightOf="@+id/bindingphone_username_text"
+                android:background="@drawable/edit_bg" />
+        
+        
+
+            <TextView
+                android:id="@+id/bindingphone_yanzhengma_text"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+            	android:layout_alignParentLeft="true"
+            	android:layout_marginLeft="30dp"
+            	android:layout_alignParentBottom="true"
+            	android:layout_marginBottom="20dp"
+                android:background="@drawable/text_bg"
+                android:gravity="center"
+                android:text="@string/yanzhengma" 
+                android:textSize="20sp"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/bindingphone_edit1"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_toRightOf="@+id/bindingphone_yanzhengma_text"
+                android:background="@drawable/edit_bg"
+                android:ems="10"
+                android:visibility="gone" >
+
+            </EditText>
+       
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/bindingphone_imageButton2"
+            android:layout_width="135dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+         	android:background="@drawable/radiobutton_bg_selector" 
+         	>
+         	<TextView 
+         	    android:id="@+id/bindingphone_textview"
+         	    android:layout_width="wrap_content"
+         	    android:layout_height="wrap_content"
+         	    android:text="进行验证"
+         		android:textColor="#ffffff"
+         		android:textSize="24sp"
+         	    android:layout_centerInParent="true"
+         	    />
+         	<ProgressBar 
+         	    android:id="@+id/bindingphone_progressbar"
+         	    android:layout_width="30dp"
+         	    android:layout_height="30dp"
+         	    android:layout_centerVertical="true"
+         	    android:visibility="gone"
+         	    android:layout_toRightOf="@id/bindingphone_textview"
+         	    />
+         	
+         </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/bindingphone_bottom_text"
+            android:textColor="@color/textcolor_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/later_binding" 
+            android:textSize="18sp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
+</RelativeLayout>

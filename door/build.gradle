@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.geeker.door"
+        minSdkVersion 14
+        targetSdkVersion 17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':datetimepickerlibrary')
+    compile project(':librarynineold')
+    compile project(':glowPadView')
+    compile files('libs/locSDK_3.3.jar')
+    compile files('libs/nongli.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
+    compile files('libs/pushservice-2.4.0.jar')
+    compile files('libs/RennSDK-Android.jar')
+}

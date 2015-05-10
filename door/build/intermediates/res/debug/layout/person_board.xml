@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    
+    <com.geeker.door.utils.PinnedHeaderListView
+	    android:id="@+id/listview" 
+	    android:layout_width="fill_parent"
+	    android:footerDividersEnabled="false"
+	    android:headerDividersEnabled="false"
+	    android:layout_height="match_parent"
+	    android:layout_marginBottom="15dp"
+	    />
+   
+     <com.geeker.door.utils.MultiDirectionSlidingDrawer
+        xmlns:my="http://schemas.android.com/apk/res/com.geeker.door"
+        android:id="@+id/drawer"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        my:content="@+id/content"
+        my:direction="bottomToTop"
+        my:handle="@+id/handle"
+        android:layout_height="120dp"
+        >
+
+        <include
+            android:id="@id/content"
+            layout="@layout/bottomlayout" />
+
+         <ImageView 
+        android:id="@+id/handle"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:src="@drawable/handle"
+        android:background="#434343"
+        android:scaleType="centerInside"
+        />
+    </com.geeker.door.utils.MultiDirectionSlidingDrawer>
+
+</RelativeLayout>
+<!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/layout/person_board.xml -->

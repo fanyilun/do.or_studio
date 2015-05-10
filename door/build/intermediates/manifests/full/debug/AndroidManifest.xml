@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.geeker.door"
+    android:versionCode="8"
+    android:versionName="2.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- for push -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- I don't know what these permissions for (push service needs) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <application
+        android:name="com.geeker.door.CrashApplication"
+        android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden|screenSize"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.geeker.door.MainActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/app_name"
+            android:logo="@drawable/actionbar_icon" >
+        </activity>
+        <activity
+            android:name="com.geeker.door.LaunchReceiver"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.geeker.door.welcome.WelcomeActivity"
+            android:theme="@style/myLightStyle" >
+        </activity>
+        <activity
+            android:name="com.geeker.door.welcome.LoginActivity"
+            android:theme="@style/myLightStyle" >
+        </activity>
+        <activity
+            android:name="com.geeker.door.welcome.CreatAccountActivity"
+            android:theme="@style/myLightStyle" >
+        </activity>
+        <activity
+            android:name="com.geeker.door.welcome.BindingPhoneActivity"
+            android:theme="@style/myLightStyle" >
+        </activity>
+        <activity android:name="com.geeker.door.AddAlarmActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.AddScheduleActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.AddRequestActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.MessageCenterActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.ringtone.SelectRingtoneActivity" />
+        <activity android:name="com.geeker.door.EventDetailsActivity" />
+        <activity android:name="com.geeker.door.RecommendActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.AccountInfoActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.AccountModifyActivity" >
+        </activity>
+
+        <receiver
+            android:name="com.geeker.door.alarm.AlarmReceiver"
+            android:process=":remote" />
+        <receiver
+            android:name="com.geeker.door.lock.WeatherRefreshReceiver"
+            android:process=":remote" />
+
+        <activity
+            android:name="com.geeker.door.alarm.AlarmActivity"
+            android:taskAffinity="com.geeker.door2"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <service
+            android:name="com.geeker.door.lock.MyLockService"
+            android:exported="false" />
+        <service
+            android:name="com.geeker.door.alarm.ForceAwakeService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.geeker.door.lock.MyLockActivity"
+            android:alwaysRetainTaskState="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.geeker.door2" >
+        </activity>
+        <activity
+            android:name="com.geeker.door.lock.LauncherActivity"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.NoDisplay" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.geeker.door.alarm.PreAlarmReceiver"
+            android:process=":remote" />
+
+        <activity
+            android:name="com.geeker.door.alarm.PreAlarmActivity"
+            android:theme="@style/myLightStyle" >
+        </activity>
+
+        <receiver android:name="com.geeker.door.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.geeker.door.DesktopActivity"
+            android:taskAffinity="com.example.clockdemo2"
+            android:theme="@style/Theme.Translucent" />
+        <activity android:name="com.geeker.door.ErrorActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.friends.FriendsActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.SettingsActivity" >
+        </activity>
+        <activity android:name="com.geeker.door.AboutActivity" >
+        </activity>
+        <activity
+            android:name="com.geeker.door.alarm.ForceAlarmActivity"
+            android:theme="@style/myLightStyle" >
+        </activity>
+        <activity
+            android:name="com.renn.rennsdk.oauth.OAuthActivity"
+            android:configChanges="orientation|navigation|keyboardHidden" />
+
+        <!-- 以下用于推送服务 -->
+        <!-- push service client -->
+        <receiver android:name="com.geeker.door.push.PushMessageReceiver" >
+            <intent-filter>
+
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- push service -->
+        <receiver
+            android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1" >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <meta-data
+            android:name="api_key"
+            android:value="SFD9YG6Aqtl0e3cjeC1q3fa2" />
+    </application>
+
+</manifest>

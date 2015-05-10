@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:background="#434343"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" >
+
+        <RelativeLayout
+            android:id="@+id/linear11"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:alpha="100"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="全部事件"
+                android:textSize="16sp" 
+                android:textColor="#ffffff"
+                />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+               
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView1"
+                android:src="@drawable/allthings_img" />
+
+           
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linear2"
+             android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="闹钟"
+                android:textSize="16sp" 
+                android:textColor="@color/gray" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView2"
+                android:src="@drawable/clock_img" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linear3"
+             android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="备忘"
+                android:textSize="16sp"  
+                android:textColor="@color/gray" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView3"
+                android:src="@drawable/beiwang_img" />
+            
+		 </RelativeLayout>
+		 
+        <RelativeLayout
+            android:id="@+id/linear4"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/textView4"
+               android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="请求"
+                android:textSize="16sp"  
+                android:textColor="@color/gray" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView4"
+                android:src="@drawable/request_img" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" 
+        
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="" 
+                android:textColor="#ffffff"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="" 
+                android:textColor="@color/gray"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="" 
+                android:textColor="@color/gray"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+             android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView8"
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="" 
+                android:textColor="@color/gray"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:id="@+id/linear5"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/bottom1_img" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageView5"
+                android:gravity="center_vertical"
+                android:textSize="16sp" 
+                android:textColor="#ffffff"
+                android:text="按事件添加时间" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/linear6"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:textSize="16sp" 
+                android:textColor="@color/gray"
+                android:text="按事件发生时间" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView10"
+                android:src="@drawable/bottom2_img" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+<!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/layout/bottomlayout.xml -->

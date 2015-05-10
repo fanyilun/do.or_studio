@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-3448408a0ecdb5b46344f0ac1b8042717484af36.jar" />
+    </item>
+    <item
+        jar="D:\Program Files\Android\Android sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-3117bd7ca073a364af77539a6901c435b8af9dff.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\libs\nongli.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c19b16d871c12b423f7631519448862b115458">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\nongli-a0f6d97da376f5a74f1c42c6aebe8e9639e0a10d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\libs\pushservice-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fd148882923ccf4cfbfe895e049c704198c6c9b0">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\pushservice-2.4.0-492460cd136e12ffe7fda03c22cf98bf3fa38bb7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\libs\locSDK_3.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="590d32bdf5bb37ee372a21696b8f7853b224e31f">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\locSDK_3.3-277a865b70d6c071712073ade9c019619f7503fc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\exploded-aar\door\librarynineold\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d01a8d048d09dacdcd6302a51ceb1d8902056a0e">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\classes-0c6a94662bb8e62ae999ec2739a00a5d21085a3a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\exploded-aar\door\datetimepickerlibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cdd6fc41e95162f01393c3b6f5c5b8a7601170bf">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\classes-8b432a76b080033d027ec671156ccb582a243db0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\libs\pinyin4j-2.5.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ae353005f973da1cd8545b54354504c2503f6865">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\pinyin4j-2.5.0-756a3995e2af00751a368fb509455bc839b4068b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\libs\RennSDK-Android.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0ca209d760b28d73bbe444888cdd0c20eeaacbc3">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\RennSDK-Android-25a0c0be0cbf8dc7332d959e16486e8d70532483.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\exploded-aar\door\glowPadView\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="acc557785c65143e8e035798f9ef7538f80cc555">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\classes-2b9322747acedfd9a38665d21a2587359e30f93e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="C:\Users\Administrator.PC-20140203LGYQ\StudioProjects\door\door\build\intermediates\pre-dexed\debug\classes-e792cb549ee95327a708e9b9b60690661f5811f1.jar" />
+    </item>
+
+</items>

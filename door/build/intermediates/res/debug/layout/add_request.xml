@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee" >
+
+    <LinearLayout
+        android:id="@+id/request_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="8dp"
+            android:text="请求内容"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/request_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/arrows" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/request_linear"
+        android:layout_width="290dp"
+        android:layout_height="90dp"
+        android:layout_below="@id/request_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/white_bg"
+        android:focusable="true" 
+		android:focusableInTouchMode="true" 
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="2dp"
+            android:text="第一行内容会自动当作标题"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/black_bg" />
+
+        <EditText
+            android:id="@+id/content_text"
+            android:layout_width="260dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@null" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/request_divider"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/request_linear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/black_bg" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/linear"
+        android:layout_below="@id/request_divider" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/time_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/time_bg"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/switch_button"
+                    android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:paddingLeft="2dp"
+                        android:text="时间"
+                        android:textColor="@color/press_color"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/time_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:text="开"
+                        android:textColor="@color/press_color"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/time_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/time_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/request_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/white_bg"
+                    android:padding="10dp"
+                    android:text="2014 年 3 月 8 日"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/request_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/white_bg"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    android:text="12 : 57"
+                    android:textColor="#8b8b8b"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+           <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="5dp"
+			    android:background="#eeeeee"
+			    />
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/black_bg" />
+            <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="5dp"
+			    android:background="#eeeeee"
+			    />
+
+            <LinearLayout
+                android:id="@+id/friend_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/friend_bg"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/switch_button"
+                    android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/friend_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:paddingLeft="2dp"
+                        android:text="同伴"
+                        android:textColor="@color/press_color"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/friend_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:text="开"
+                        android:textColor="@color/press_color"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/friend_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/friend_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_bg" >
+
+                    <com.geeker.door.utils.MyViewGroup
+                        android:id="@+id/friend_viewgroup"
+                        android:layout_width="220dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true" >
+                    </com.geeker.door.utils.MyViewGroup>
+
+                    <ImageView
+                        android:id="@+id/friend_add"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/add" />
+                </RelativeLayout>
+                <LinearLayout 
+                    android:id="@+id/friend_default"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    >
+                </LinearLayout>
+            </LinearLayout>
+            <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="5dp"
+			    android:background="#eeeeee"
+			    />
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/black_bg" />
+            <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="5dp"
+			    android:background="#eeeeee"
+			    />
+            
+             <LinearLayout
+                android:id="@+id/classify_title"
+                android:layout_width="match_parent"
+                android:background="#eeeeee"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/classify_bg"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/switch_button"
+                    android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/classify_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:paddingLeft="2dp"
+                        android:text="标签"
+                        android:textColor="@color/press_color"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/classify_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:text="开"
+                        android:textColor="@color/press_color"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/classify_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/classify_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_bg" >
+
+                    <com.geeker.door.utils.MyViewGroup
+                        android:id="@+id/classify_viewgroup"
+                        android:layout_width="220dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true" >
+                    </com.geeker.door.utils.MyViewGroup>
+
+                    <ImageView
+                        android:id="@+id/classify_add"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/add" />
+                </RelativeLayout>
+                <LinearLayout 
+                    android:id="@+id/classify_default"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    >
+                </LinearLayout>
+            </LinearLayout>
+            <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="5dp"
+			    android:background="#eeeeee"
+			    />
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/black_bg" />
+            <TextView 
+			    android:layout_width="match_parent"
+			    android:layout_height="5dp"
+			    android:background="#eeeeee"
+			    />
+            <LinearLayout
+                android:id="@+id/tweet_title"
+                android:layout_width="match_parent"
+                android:background="#eeeeee"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/tweet_bg"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/switch_button"
+                    android:padding="5dp" >
+
+                    <TextView
+                        android:id="@+id/tweet_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:paddingLeft="2dp"
+                        android:text="发布到"
+                        android:textColor="@color/press_color"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tweet_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:duplicateParentState="true"
+                        android:text="开"
+                        android:textColor="@color/press_color"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/tweet_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/tweet_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#eeeeee"
+                android:visibility="visible"
+                >
+				<LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_bg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="15dp"
+                        android:text="人人"
+                        android:textSize="17sp"
+                         />
+
+                    <Switch
+                        android:id="@+id/switch_renren"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:textOn="开启"
+                        android:textOff="关闭"
+                        />
+                    
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/board_linear"
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_bg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="15dp"
+                        android:text="公共事务板"
+                        android:textSize="17sp"
+                         />
+
+                    <Switch
+                        android:id="@+id/switch_board"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:checked="true"
+                        android:textOn="开启"
+                        android:textOff="关闭"
+                        android:clickable="false"
+                        />
+                    
+                </LinearLayout>
+                
+            </LinearLayout>
+            
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true" >
+
+        <ImageButton
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg_dark_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/add_alarm_cancel" />
+
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="fill_parent" />
+
+        <ImageButton
+            android:id="@+id/button_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg_dark_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/add_alarm_confirm" />
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/layout/add_request.xml -->

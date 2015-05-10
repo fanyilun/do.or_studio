@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    >
+
+<LinearLayout
+    android:id="@+id/linear1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <ImageView 
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
+    <TextView 
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do.or"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        />
+    <TextView 
+        android:id="@+id/version_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="V 1.0"
+        android:textColor="#787878"
+        android:layout_marginTop="6dp"
+        />
+    <TextView 
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#787878"
+        android:text="geeeeker@hotmail.com"
+        android:layout_marginTop="6dp"
+        />
+
+</LinearLayout>
+ <LinearLayout 
+        android:id="@+id/system_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+                    android:id="@+id/check_update"
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_drawable_selector"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="检查更新"
+                        android:textSize="17sp"
+                         />
+
+                    <TextView
+                     	android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:text=""
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/arrows" />
+                </LinearLayout>
+                
+   
+    <LinearLayout
+                    android:id="@+id/suggestion_feedback"
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_drawable_selector"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="意见反馈"
+                        android:textSize="17sp"
+                         />
+
+                    <TextView
+                     	android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:text=""
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/arrows" />
+                </LinearLayout>
+                
+     <LinearLayout
+                    android:id="@+id/linear_about"
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_drawable_selector"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="使用帮助"
+                        android:textSize="17sp"
+                         />
+
+                    <TextView
+                     	android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:text=""
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/arrows" />
+                </LinearLayout>
+                </LinearLayout>
+ <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#787878"
+        android:text="Copyright © 2014 Geeeeker. All Rights Reserved."
+	android:layout_alignParentBottom="true"
+	android:layout_marginBottom="30dp"
+	android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

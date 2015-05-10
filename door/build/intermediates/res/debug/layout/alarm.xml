@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:glowpad="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/alarm_bg"
+    android:layout_width="match_parent"
+    android:background="@drawable/alarm_bg"
+    android:layout_height="match_parent" >
+    
+    <ImageView 
+        android:id="@+id/alarm_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/alarm_alarm"
+        android:scaleType="centerInside"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+    <TextView 
+        android:id="@+id/time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00 : 00"
+        android:textColor="@color/white"
+        android:textSize="75sp"
+        android:layout_marginTop="10sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/alarm_icon"
+        
+        />
+    <TextView 
+        android:id="@+id/alarm_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="标签"
+        android:layout_below="@id/time_title"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:layout_marginTop="8dp"
+        />
+    
+    <com.fima.glowpadview.GlowPadView
+        android:id="@+id/glow_pad_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="-30dp"
+        android:focusable="true"
+        android:gravity="center"
+        glowpad:directionDescriptions="@array/snooze_dismiss_direction_descriptions"
+        glowpad:feedbackCount="0"
+        glowpad:glowRadius="@dimen/glowpadview_glow_radius"
+        glowpad:handleDrawable="@drawable/ic_alarm_alert_touch_handle"
+        glowpad:innerRadius="@dimen/glowpadview_inner_radius"
+        glowpad:outerRadius="135dp"
+        glowpad:outerRingDrawable="@drawable/ic_alarm_alert_outerring"
+        glowpad:pointDrawable="@drawable/ic_lockscreen_glowdot"
+        glowpad:snapMargin="@dimen/glowpadview_snap_margin"
+        glowpad:targetDescriptions="@array/snooze_dismiss_descriptions"
+        glowpad:targetDrawables="@array/snooze_dismiss_drawables"
+        glowpad:vibrationDuration="20" />
+    
+    <TextView 
+        android:id="@+id/hint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击屏幕继续"       
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="3dp"
+        />
+
+</RelativeLayout>
+<!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/layout/alarm.xml -->

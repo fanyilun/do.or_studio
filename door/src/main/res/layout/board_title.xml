@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="163dp" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="163dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/board_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="70dp" >
+		<LinearLayout 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignBottom="@+id/weather_linear"
+		    android:layout_marginLeft="20dp"
+		    android:orientation="vertical"
+		    >     
+            <TextView 
+                android:id="@+id/time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 : 52"
+                android:textSize="40sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                />
+            <TextView 
+                android:id="@+id/date_text"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周一，农历二月初十"
+                android:textSize="11sp"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/white"
+                />
+            </LinearLayout>       
+            
+		<LinearLayout 
+		    android:id="@+id/weather_linear"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_marginRight="30dp"
+		    android:orientation="vertical"
+		    >
+		    <ImageView 
+		        android:id="@+id/weather_icon"
+		        android:layout_width="45dp"
+		        android:layout_height="45dp"
+		        android:layout_marginTop="3dp"
+		        android:layout_gravity="center_horizontal"
+		        android:src="@drawable/weather_suncloud"
+		        />
+			<TextView 
+			    android:id="@+id/weather_text"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center_horizontal"
+			    android:text="晴转多云，-5 ~28°C"
+			    android:layout_marginTop="8dp"
+			    android:textColor="@color/white"
+			    android:textSize="11sp"
+			    />		    
+		</LinearLayout>
+		<ImageView 
+		    android:id="@+id/edit_button"
+		    android:layout_width="20dp"
+		    android:layout_height="20dp"
+		    android:src="@drawable/board_edit_selector"
+		    android:layout_alignParentTop="true"
+		    android:layout_marginTop="5dp"
+		    android:layout_marginRight="2dp"
+		    android:layout_alignParentRight="true"
+		    />
+		
+        </RelativeLayout>
+		<TextView 
+		    android:layout_width="match_parent"
+		    android:layout_height="9dp"/>
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center_horizontal" >
+
+            <ImageView
+                android:id="@+id/img_head"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_launcher" />
+
+            <com.geeker.door.utils.CustomTextView 
+                android:id="@+id/info_normal_username_text"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="您尚未登录"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <ProgressBar
+                android:id="@+id/infonormal_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/info_normal_username_text"
+                android:layout_alignRight="@+id/info_normal_username_text"
+                android:layout_below="@+id/info_normal_level_text"
+                android:max="10"
+                android:progress="5" />
+
+            <TextView
+                android:id="@+id/info_normal_level_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/infonormal_progressbar"
+                android:layout_alignRight="@+id/infonormal_progressbar"
+                android:layout_below="@id/info_normal_username_text"
+                android:layout_marginBottom="-5dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/info_normal_signing_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/infonormal_progressbar"
+                android:layout_alignParentBottom="true"
+                android:layout_alignRight="@+id/infonormal_progressbar"
+                android:layout_below="@+id/infonormal_progressbar"
+                android:gravity="center_horizontal"
+                android:text="连续签到0天"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
