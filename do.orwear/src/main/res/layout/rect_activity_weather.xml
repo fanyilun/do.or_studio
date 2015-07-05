@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+    tools:context="com.geeker.door.WeatherActivity" tools:deviceIds="wear_square">
+
+    <TextView android:id="@+id/head_text" android:layout_width="match_parent"
+        android:layout_height="0dp" android:text="暂无天气"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_weight="1.8"/>
+
+    <TextView android:id="@+id/today_text" android:layout_width="match_parent"
+        android:layout_height="0dp" android:text=""
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_weight="1"/>
+    <TextView android:id="@+id/tomorrow_text" android:layout_width="match_parent"
+        android:layout_height="0dp" android:text=""
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_weight="1"/>
+    <TextView android:id="@+id/aftertom_text" android:layout_width="match_parent"
+        android:layout_height="0dp" android:text=""
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_weight="1"/>
+    <TextView android:id="@+id/afteraftertom_text" android:layout_width="match_parent"
+        android:layout_height="0dp" android:text=""
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_weight="1"/>
+</LinearLayout>
