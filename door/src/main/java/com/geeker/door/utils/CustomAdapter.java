@@ -34,6 +34,7 @@ import com.geeker.door.businesslogic.AlarmService;
 import com.geeker.door.database.DbManager;
 import com.geeker.door.database.EventVO;
 import com.geeker.door.utils.PinnedHeaderListView.PinnedHeaderAdapter;
+import com.geeker.door.wear.WearDataListener;
 
 
 /**
@@ -61,8 +62,6 @@ public class CustomAdapter extends BaseAdapter
 	// ===========================================================
 	// Constructors
 	// ===========================================================
-	private int opendPosition = -1;
-	private HashMap<Integer, SlidingLayout> slidingMap;
 	private DbManager dbManager;
 	private AlarmService alarmService;
 	
@@ -71,7 +70,6 @@ public class CustomAdapter extends BaseAdapter
 		mContext = pContext;
 		mData = pData;
 		alarmService=new AlarmService(pContext);
-		slidingMap = new HashMap<Integer, SlidingLayout>();
 		dbManager=new DbManager(pContext);
 		mLayoutInflater = LayoutInflater.from(mContext);
 	}
@@ -97,10 +95,9 @@ public class CustomAdapter extends BaseAdapter
             viewHolder.subContent=(TextView)convertView.findViewById(R.id.subcontent);
             viewHolder.contentIcon = (ImageView) convertView.findViewById(R.id.content_icon);
             viewHolder.addTime=(TextView)convertView.findViewById(R.id.add_time);
-            viewHolder.button=(ImageButton)convertView.findViewById(R.id.item_button);
-            viewHolder.layout = (SlidingLayout) convertView.findViewById(R.id.layout);
-            viewHolder.deleteButton = (Button) convertView.findViewById(R.id.delete_button);
-            viewHolder.editButton = (Button) convertView.findViewById(R.id.edit_button);
+
+            viewHolder.layout = (View) convertView.findViewById(R.id.layout);
+
             viewHolder.editLayout= convertView.findViewById(R.id.edit_layout);
             convertView.setTag(viewHolder);
         } else {
@@ -111,35 +108,36 @@ public class CustomAdapter extends BaseAdapter
         viewHolder.content.setText(itemEntity.getContent());
         viewHolder.subContent.setText(itemEntity.getSubContent());
         viewHolder.addTime.setText(itemEntity.getTime());
-        slidingMap.put(position, viewHolder.layout);
+//        slidingMap.put(position, viewHolder.layout);
         switch (itemEntity.getType()) {
         case EventVO.TYPE_ALARM:
 			viewHolder.content.setTextSize(30);
 			viewHolder.contentIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.item_alarm));
-			viewHolder.editButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Toast.makeText(mContext, "闹钟没有这个功能哦", Toast.LENGTH_SHORT).show();
-				}
-			});
+//			viewHolder.editButton.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					Toast.makeText(mContext, "闹钟没有这个功能哦", Toast.LENGTH_SHORT).show();
+//				}
+//			});
 			break;
 		case EventVO.TYPE_SCHEDULE:
 			viewHolder.content.setTextSize(30);
 			/*if(itemEntity.getContent().length()>8){
 				viewHolder.content.setTextSize(280/itemEntity.getContent().length());
 			}*/
-			viewHolder.editButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					new FinishEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, 
-							dbManager.getEventID(EventVO.TYPE_SCHEDULE, itemEntity.getRequestCode()));
-					mData.remove(position);
-					slidingMap.remove(position);
-					opendPosition = -1;
-					dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
-					notifyDataSetChanged();
-				}
-			});
+//			viewHolder.editButton.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					new FinishEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+//							dbManager.getEventID(EventVO.TYPE_SCHEDULE, itemEntity.getRequestCode()));
+//					mData.remove(position);
+//					slidingMap.remove(position);
+//					opendPosition = -1;
+//					dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
+//					notifyDataSetChanged();
+//					new WearDataListener(mContext).sendMemoData();
+//				}
+//			});
 			viewHolder.contentIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.item_schedule));
 			break;
 		case EventVO.TYPE_REQUEST:
@@ -147,83 +145,83 @@ public class CustomAdapter extends BaseAdapter
 			/*if(itemEntity.getContent().length()>8){
 				viewHolder.content.setTextSize(280/itemEntity.getContent().length());
 			}*/
-			viewHolder.editButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					new FinishEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, 
-							dbManager.getEventID(EventVO.TYPE_REQUEST, itemEntity.getRequestCode()));
-					mData.remove(position);
-					slidingMap.remove(position);
-					opendPosition = -1;
-					dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
-					notifyDataSetChanged();
-				}
-			});
+//			viewHolder.editButton.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					new FinishEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+//							dbManager.getEventID(EventVO.TYPE_REQUEST, itemEntity.getRequestCode()));
+//					mData.remove(position);
+//					slidingMap.remove(position);
+//					opendPosition = -1;
+//					dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
+//					notifyDataSetChanged();
+//				}
+//			});
 			viewHolder.contentIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.item_request));
 			break;
 		}
         //viewHolder.contentIcon.setImageResource(R.drawable.ic_launcher);
         //滑动按钮
-        viewHolder.button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Set<Integer> keySet = slidingMap.keySet();
-				for (Integer i : keySet) {
-					if (opendPosition != position) {
-						slidingMap.get(i).setDefault();
-					}
-				}
-				if (slidingMap.get(position).toggle()) {
-					opendPosition = position;
-				} else {
-					opendPosition = -1;
-				}
-			}
-		});
+//        viewHolder.button.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Set<Integer> keySet = slidingMap.keySet();
+//				for (Integer i : keySet) {
+//					if (opendPosition != position) {
+//						slidingMap.get(i).setDefault();
+//					}
+//				}
+//				if (slidingMap.get(position).toggle()) {
+//					opendPosition = position;
+//				} else {
+//					opendPosition = -1;
+//				}
+//			}
+//		});
         //编辑
-        viewHolder.editLayout.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ItemEntity event=mData.get(position);
-				Class<?> cls = null;
-				switch (event.getType()) {
-				case EventVO.TYPE_ALARM:
-					cls=AddAlarmActivity.class;
-					break;
-				case EventVO.TYPE_SCHEDULE:
-					cls=AddScheduleActivity.class;
-					break;
-				case EventVO.TYPE_REQUEST:
-					cls=AddRequestActivity.class;
-					break;
-				}
-				Intent i=new Intent(mContext,cls);
-				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				i.putExtra("requestCode", event.getRequestCode());
-				mContext.startActivity(i);
-			}
-		});
+//        viewHolder.editLayout.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				ItemEntity event=mData.get(position);
+//				Class<?> cls = null;
+//				switch (event.getType()) {
+//				case EventVO.TYPE_ALARM:
+//					cls=AddAlarmActivity.class;
+//					break;
+//				case EventVO.TYPE_SCHEDULE:
+//					cls=AddScheduleActivity.class;
+//					break;
+//				case EventVO.TYPE_REQUEST:
+//					cls=AddRequestActivity.class;
+//					break;
+//				}
+//				Intent i=new Intent(mContext,cls);
+//				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//				i.putExtra("requestCode", event.getRequestCode());
+//				mContext.startActivity(i);
+//			}
+//		});
         //删除按钮
-        viewHolder.deleteButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, 
-						dbManager.getEventID(itemEntity.getType(), itemEntity.getRequestCode()));
-				if(itemEntity.getType()==EventVO.TYPE_ALARM){
-					Intent intent = new Intent(mContext,AlarmReceiver.class);
-					PendingIntent pi = PendingIntent.getBroadcast(mContext,itemEntity.getRequestCode(),intent, PendingIntent.FLAG_CANCEL_CURRENT);
-					AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
-					am.cancel(pi);
-				}
-				mData.remove(position);
-				slidingMap.remove(position);
-				opendPosition = -1;
-				dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
-				notifyDataSetChanged();
-				new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, 
-						dbManager.getEventID(itemEntity.getType(), itemEntity.getRequestCode()));
-			}
-		});
+//        viewHolder.deleteButton.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+//						dbManager.getEventID(itemEntity.getType(), itemEntity.getRequestCode()));
+//				if(itemEntity.getType()==EventVO.TYPE_ALARM){
+//					Intent intent = new Intent(mContext,AlarmReceiver.class);
+//					PendingIntent pi = PendingIntent.getBroadcast(mContext,itemEntity.getRequestCode(),intent, PendingIntent.FLAG_CANCEL_CURRENT);
+//					AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+//					am.cancel(pi);
+//				}
+//				mData.remove(position);
+//				slidingMap.remove(position);
+//				opendPosition = -1;
+//				dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
+//				notifyDataSetChanged();
+////				new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+////						dbManager.getEventID(itemEntity.getType(), itemEntity.getRequestCode()));
+//			}
+//		});
         if ( needTitle(position) ) {
             // 显示标题并设置内容 
             viewHolder.title.setText(itemEntity.getTitle());
@@ -232,11 +230,13 @@ public class CustomAdapter extends BaseAdapter
             // 内容项隐藏标题
             viewHolder.title.setVisibility(View.GONE);
         }
-        if (opendPosition == position) {
-			viewHolder.layout.open();
-		} else {
-			viewHolder.layout.setDefault();
-		}
+//        if (opendPosition == position) {
+//			viewHolder.layout.open();
+//		} else {
+//			viewHolder.layout.setDefault();
+//		}
+
+		new WearDataListener(mContext).sendMemoData();
         return convertView;
 	}
 	
@@ -246,6 +246,48 @@ public class CustomAdapter extends BaseAdapter
 			return mData.size();
 		}
 		return 0;
+	}
+
+	public void deleteButton(int position){
+		ItemEntity itemEntity = (ItemEntity) getItem(position);
+		new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+				dbManager.getEventID(itemEntity.getType(), itemEntity.getRequestCode()));
+				if(itemEntity.getType()==EventVO.TYPE_ALARM){
+					Intent intent = new Intent(mContext,AlarmReceiver.class);
+					PendingIntent pi = PendingIntent.getBroadcast(mContext,itemEntity.getRequestCode(),intent, PendingIntent.FLAG_CANCEL_CURRENT);
+					AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+					am.cancel(pi);
+				}
+				mData.remove(position);
+				dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
+				notifyDataSetChanged();
+//				new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+//						dbManager.getEventID(itemEntity.getType(), itemEntity.getRequestCode()));
+	}
+
+	public void finishButton(int position){
+		ItemEntity itemEntity = (ItemEntity) getItem(position);
+		switch (itemEntity.getType()) {
+			case EventVO.TYPE_SCHEDULE:
+				new FinishEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+						dbManager.getEventID(EventVO.TYPE_SCHEDULE, itemEntity.getRequestCode()));
+				mData.remove(position);
+				dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
+				notifyDataSetChanged();
+				new WearDataListener(mContext).sendMemoData();
+				break;
+			case EventVO.TYPE_ALARM:
+				Toast.makeText(mContext, "闹钟没有这个功能哦", Toast.LENGTH_SHORT).show();
+				break;
+			case EventVO.TYPE_REQUEST:
+				new FinishEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,
+						dbManager.getEventID(EventVO.TYPE_REQUEST, itemEntity.getRequestCode()));
+				mData.remove(position);
+				dbManager.deleteItem(itemEntity.getType(), itemEntity.getRequestCode());
+				notifyDataSetChanged();
+				break;
+
+		}
 	}
 
 	@Override
@@ -403,10 +445,9 @@ public class CustomAdapter extends BaseAdapter
         TextView subContent;
         TextView addTime;
         ImageView contentIcon;
-        SlidingLayout layout;
-        ImageButton button;
-        Button editButton;
-        Button deleteButton;
+        View layout;
+
+
         View editLayout;
     }
 	

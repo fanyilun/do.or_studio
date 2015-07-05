@@ -12,7 +12,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
@@ -22,9 +22,12 @@ dependencies {
     compile project(':datetimepickerlibrary')
     compile project(':librarynineold')
     compile project(':glowPadView')
+    wearApp project(':do.orwear')
     compile files('libs/locSDK_3.3.jar')
     compile files('libs/nongli.jar')
     compile files('libs/pinyin4j-2.5.0.jar')
     compile files('libs/pushservice-2.4.0.jar')
     compile files('libs/RennSDK-Android.jar')
+    compile 'com.google.android.gms:play-services:7.3.0'
+    compile 'com.android.support:support-v4:21.0.0+'
 }

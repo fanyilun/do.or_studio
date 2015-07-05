@@ -3,10 +3,14 @@ package com.geeker.door;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,17 +18,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
+
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,15 +46,18 @@ import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
+import android.support.v4.app.NotificationCompat.WearableExtender;
 import com.geeker.door.businesslogic.BoardService;
 import com.geeker.door.database.DbManager;
+import com.geeker.door.database.EventVO;
+import com.geeker.door.database.MemoVO;
 import com.geeker.door.friends.FriendsActivity;
 import com.geeker.door.imgcache.ImageDownloader;
 import com.geeker.door.lock.MyLockService;
 import com.geeker.door.lock.WeatherRefreshReceiver;
 import com.geeker.door.renren.Constants;
 import com.geeker.door.utils.MyViewPager;
+import com.geeker.door.wear.WearDataListener;
 import com.geeker.door.welcome.LoginActivity;
 import com.renn.rennsdk.RennClient;
 import com.renn.rennsdk.RennClient.LoginListener;
@@ -67,6 +80,7 @@ public class MainActivity extends MyActionBarActivity {
 	TextView levelText;
 	TextView signing;
 	ProgressBar levelBar;
+	Handler handler;
 	
 	private BroadcastReceiver receiver1=new BroadcastReceiver() {
 		@Override
@@ -87,6 +101,7 @@ public class MainActivity extends MyActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		handler=new Handler();
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 //		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
@@ -115,12 +130,17 @@ public class MainActivity extends MyActionBarActivity {
 				Utils.getMetaValue(this, "api_key"));*/
 		registerReceiver(receiver1, new IntentFilter("com.geeker.door.EXPLEV"));
 		registerReceiver(receiver2, new IntentFilter("com.geeker.door.SIGNDAYS"));
+		//validate android wear info
+		new WearDataListener(MainActivity.this).sendMemoData();
+
 	}
+
 
 	@Override
 	protected void onStart() {
 		new InitMsgTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		super.onStart();
+
 	}
 	
 	private void initWeatherReceiver() {
@@ -219,16 +239,45 @@ public class MainActivity extends MyActionBarActivity {
 				startActivity(i);
 			}
 		});
+
 		achievement.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				new AlertDialog.Builder(MainActivity.this).setTitle("成就中心").setMessage("由于美工罢工，此项功能尚未开发")
-		          .setNegativeButton("美工是大坏蛋", new DialogInterface.OnClickListener() {
-		              public void onClick(DialogInterface dialog, int which) {
-		              }
-		          })
-		          .show();
+//				new AlertDialog.Builder(MainActivity.this).setTitle("成就中心").setMessage("由于美工罢工，此项功能尚未开发")
+//		          .setNegativeButton("美工是大坏蛋", new DialogInterface.OnClickListener() {
+//		              public void onClick(DialogInterface dialog, int which) {
+//		              }
+//		          })
+//		          .show();
+				handler.postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						Intent i=new Intent(MainActivity.this,MainActivity.class);
+						PendingIntent mapPendingIntent =
+								PendingIntent.getActivity(MainActivity.this, 0, i, 0);
+
+						NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender()
+								.setHintShowBackgroundOnly(true);
+						Bitmap bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.board_title)).getBitmap();
+						NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.this)
+								.setSmallIcon(R.drawable.ic_launcher)
+								.setLargeIcon(bitmap)
+								.setContentTitle("Request text")
+								.setContentText("Speak something then your phone will search it.")
+								.setDefaults(Notification.DEFAULT_ALL)
+								.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000, 1000})
+								.addAction(R.drawable.ic_launcher,
+										"finish", mapPendingIntent)
+								.addAction(R.drawable.ic_launcher,
+										"delete", mapPendingIntent)
+								.extend(wearableExtender);
+
+						NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
+						notificationManager.notify(0, notificationBuilder.build());
+					}
+				}, 3000);
+
 			}
 		});
 		mDrawerLayout.closeDrawers();

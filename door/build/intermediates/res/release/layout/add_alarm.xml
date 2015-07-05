@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="#eeeeee" >
+
+    <TextView
+        android:id="@+id/alarm_time"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/white_bg_selector"
+        android:gravity="center"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:text="12:34  "
+        android:textColor="#8b8b8b"
+        android:textScaleX="1.0"
+        android:textSize="60sp" />
+
+    <TextView
+        android:id="@+id/alarm_ampm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/alarm_time"
+        android:layout_alignRight="@id/alarm_time"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="30dp"
+        android:text="下午"
+        android:textColor="#8b8b8b"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true" >
+
+        <ImageButton
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg_dark_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/add_alarm_cancel" />
+
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="fill_parent" />
+
+        <ImageButton
+            android:id="@+id/button_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg_dark_selector"
+            android:scaleType="centerInside"
+            android:src="@drawable/add_alarm_confirm" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/linear"
+        android:paddingTop="10dp"
+        android:layout_below="@id/alarm_time" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/alert_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="8dp"
+                    android:text="提醒方式"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/alert_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/alert_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/alarm_1"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/left_radius_button_selector"
+                        android:textColor="@color/white"
+                        android:text="日" />
+                    <ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_2"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:textColor="@color/white"
+                        android:text="一" />
+					<ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_3"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:textColor="@color/white"
+                        android:text="二" />
+					<ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_4"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:textColor="@color/white"
+                        android:text="三" />
+					<ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_5"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:textColor="@color/white"
+                        android:text="四" />
+					<ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_6"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:textColor="@color/white"
+                        android:text="五" />
+					<ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_7"
+                        android:layout_width="40dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/right_radius_button_selector"
+                        android:textColor="@color/white"
+                        android:text="六" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/set_ringtone"
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_drawable_selector"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="铃声"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ring_name"
+                     	android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:text="啊~~啊~~"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:paddingRight="10dp"
+                        android:src="@drawable/arrows" />
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_bg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="标签"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/label_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:hint="在此输入标签"
+                        android:background="@null"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="音量"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/volume"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="30dp"
+                        android:max="4"
+                        android:progress="3"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/alarm_setting1"
+                        android:layout_width="72dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/left_radius_button_selector"
+                        android:paddingBottom="10dp"
+                        android:drawableTop="@drawable/add_alarm_nap"
+                        android:textSize="14sp"
+                        android:text="强力唤醒" />
+
+                    <ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_setting2"
+                        android:layout_width="72dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:paddingBottom="10dp"
+                        android:textSize="14sp"
+                        android:drawableTop="@drawable/add_alarm_fadein"
+                        android:text="铃声渐强" />
+					<ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_setting3"
+                        android:layout_width="72dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/button_bg_selector"
+                        android:paddingBottom="10dp"
+                        android:drawableTop="@drawable/add_alarm_vibrate"
+                        android:textSize="14sp"
+                        android:text="震动" />
+ 					 <ImageView 
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/white_bg"
+                        />
+                    <Button
+                        android:id="@+id/alarm_setting4"
+                        android:layout_width="72dp"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/right_radius_button_selector"
+                        android:drawableTop="@drawable/add_alarm_advance"
+                        android:paddingBottom="10dp"
+                        android:textSize="14sp"
+                        android:text="提前唤醒" />
+                </LinearLayout>
+                
+            </LinearLayout>
+            
+            
+            <ImageView 
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/black_bg"
+                android:layout_marginTop="10dp"
+                />
+            <LinearLayout
+                android:id="@+id/relieve_title"
+                android:layout_width="match_parent"
+                android:background="#eeeeee"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="8dp"
+                    android:text="解除方式"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/relieve_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/relieve_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#eeeeee"
+                android:visibility="visible"
+                >
+                <RadioGroup 
+                    android:id="@+id/radiogroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+				<RadioButton 
+				    android:id="@+id/relieve_slide"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:text="滑动屏幕"
+				    android:paddingTop="5dp"
+				    style="@style/RadioButtonStyles"
+				    android:paddingBottom="5dp"
+				    android:textSize="16sp"
+				    />
+                <RadioButton 
+				    android:id="@+id/relieve_shake"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:text="摇动手机"
+				    android:paddingTop="5dp"
+				    android:paddingBottom="5dp"
+				    style="@style/RadioButtonStyles"
+				    android:checked="true"
+				    android:textSize="16sp"
+				    />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#eeeeee"
+                />
+             <ImageView 
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/black_bg"
+                />
+            <LinearLayout
+                android:id="@+id/tweet_title"
+                android:layout_width="match_parent"
+                android:background="#eeeeee"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="8dp"
+                    android:text="发布到"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/tweet_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/arrows" />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:id="@+id/tweet_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#eeeeee"
+                android:visibility="visible"
+                >
+				<LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_bg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="15dp"
+                        android:text="人人"
+                        android:textSize="17sp"
+                         />
+
+                    <Switch
+                        android:id="@+id/switch_renren"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:textOn="开启"
+                        android:textOff="关闭"
+                        />
+                    
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="44dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_bg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="15dp"
+                        android:text="公共事务板"
+                        android:textSize="17sp"
+                         />
+
+                    <Switch
+                        android:id="@+id/switch_board"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:checked="true"
+                        android:textOn="开启"
+                        android:textOff="关闭"
+                        
+                        />
+                    
+                </LinearLayout>
+                
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout><!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/layout/add_alarm.xml -->

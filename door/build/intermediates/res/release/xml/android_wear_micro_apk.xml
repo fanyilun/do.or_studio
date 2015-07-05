@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wearableApp package="com.geeker.door">
+    <versionCode>1</versionCode>
+    <versionName>1.0</versionName>
+    <rawPathResId>android_wear_micro_apk</rawPathResId>
+</wearableApp><!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/build/generated/res/microapk/release/xml/android_wear_micro_apk.xml -->

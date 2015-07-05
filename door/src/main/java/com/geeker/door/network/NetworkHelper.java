@@ -1,6 +1,10 @@
 package com.geeker.door.network;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -14,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.os.Build;
+import android.util.Log;
 
 public class NetworkHelper {
 	
@@ -72,13 +77,13 @@ public class NetworkHelper {
 	
 	public static String[] HTTPGetWeather(String city) {
 		// 第1步：创建HttpGet对象
-		String[] result=new String[2];
+		String[] result=new String[14];//城市 PM2.5  今天 现在温度  现在天气  明天  明天温度  明天天气  后天  后天温度  后天天气 大后天 大后天温度 大后天天气
 		System.setProperty("http.keepAlive", "false");
-		HttpGet httpGet = new HttpGet("http://www.weather.com.cn/data/cityinfo/"+city+".html");
-		HttpResponse httpResponse = null;
 		// 第2步：使用execute方法发送HTTPGET请求，并返回HttpResponse对象
 		try {
-			httpResponse = new DefaultHttpClient().execute(httpGet);
+			String sn=getSN(city);
+			HttpGet httpGet = new HttpGet("http://api.map.baidu.com/telematics/v3/weather?location="+city+"&output=json&ak=EEc1678d133a9029a1958802fad9927f&sn="+sn);
+			HttpResponse httpResponse = new DefaultHttpClient().execute(httpGet);
 			// 判断请求响应状态码，状态码为200表示服务端成功响应了客户端的请求
 			if (httpResponse.getStatusLine().getStatusCode() == 200){
 				// 第3步：使用getEntity方法获得返回结果
@@ -87,16 +92,77 @@ public class NetworkHelper {
 				resultJson.replaceAll("\r", "");
 				//json处理
 				JSONObject json = new JSONObject(resultJson);
-				json=json.getJSONObject("weatherinfo");
-				result[0]=json.getString("temp1")+"~"+json.getString("temp2");
-				result[1]=json.getString("weather");
+				json=json.getJSONArray("results").getJSONObject(0);
+
+				result[0]=json.getString("currentCity");
+				result[1]=json.getString("pm25");
+
+				JSONArray arr=json.getJSONArray("weather_data");
+				for (int i=0;i<arr.length();i++){
+					json=arr.getJSONObject(i);
+					result[i*3+2]=json.getString("date");
+					result[i*3+3]=json.getString("temperature");
+					result[i*3+4]=json.getString("weather");
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
+
+	private static String getSN(String city) throws Exception{
+			Map paramsMap = new LinkedHashMap<String, String>();
+			paramsMap.put("location", city);
+			paramsMap.put("output", "json");
+			paramsMap.put("ak", "EEc1678d133a9029a1958802fad9927f");
+
+			// 调用下面的toQueryString方法，对LinkedHashMap内所有value作utf8编码，拼接返回结果address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&output=json&ak=yourak
+			String paramsStr = toQueryString(paramsMap);
+
+			// 对paramsStr前面拼接上/geocoder/v2/?，后面直接拼接yoursk得到/geocoder/v2/?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&output=json&ak=yourakyoursk
+			String wholeStr = new String("/telematics/v3/weather?" + paramsStr + "CA0f85f1e52e9de1d31c5675a49c7bbd");
+
+			// 对上面wholeStr再作utf8编码
+			String tempStr = URLEncoder.encode(wholeStr, "UTF-8");
+			return MD5(tempStr);
+	}
+
+
+	private static String toQueryString(Map<?, ?> data) throws UnsupportedEncodingException
+	{
+		StringBuffer queryString = new StringBuffer();
+		for (Map.Entry<?, ?> pair : data.entrySet())
+		{
+			queryString.append(pair.getKey() + "=");
+			queryString.append(URLEncoder.encode((String) pair.getValue(), "UTF-8") + "&");
+		}
+		if (queryString.length() > 0)
+		{
+			queryString.deleteCharAt(queryString.length() - 1);
+		}
+		return queryString.toString();
+	}
+
+	// 来自stackoverflow的MD5计算方法，调用了MessageDigest库函数，并把byte数组结果转换成16进制
+	private static String MD5(String md5)
+	{
+		try
+		{
+			java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+			byte[] array = md.digest(md5.getBytes());
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < array.length; ++i)
+			{
+				sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
+			}
+			return sb.toString();
+		} catch (java.security.NoSuchAlgorithmException e)
+		{
+		}
+		return null;
+	}
+
 	public static Object[][] HTTPpostForArray(String urlEnding,List<NameValuePair> requestParam,String[][] resultParam){
 		// 网络连接不能放在主线程里
 		String url = "http://1.doorserver.sinaapp.com/index.php/" + urlEnding;

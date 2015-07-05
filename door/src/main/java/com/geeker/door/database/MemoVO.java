@@ -155,6 +155,9 @@ public class MemoVO {
 	}
 	
 	public String getTimeStringWithoutYear(){
+		if(occurTime==null){
+			return "";
+		}
 		return (occurTime.get(Calendar.MONTH)+1)+"月"+occurTime.get(Calendar.DAY_OF_MONTH)+"日";
 	}
 }

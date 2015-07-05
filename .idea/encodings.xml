@@ -3,6 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/AboutActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/AccountInfoActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenu.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenuAdapter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenuCreator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenuItem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenuLayout.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenuListView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/door/src/main/java/com/geeker/door/swipe/SwipeMenuView.java" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

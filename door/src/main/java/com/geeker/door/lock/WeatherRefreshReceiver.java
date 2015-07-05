@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.geeker.door.database.DbManager;
 import com.geeker.door.network.NetworkHelper;
+import com.geeker.door.wear.WearDataListener;
 
 public class WeatherRefreshReceiver extends BroadcastReceiver{
 	
@@ -17,7 +18,7 @@ public class WeatherRefreshReceiver extends BroadcastReceiver{
 	
 	@Override
 	public void onReceive(Context arg0, Intent arg1) {
-		System.out.println("weather receive");
+
 		this.c=arg0;
 		db=new DbManager(c);
 		if(db.getKey("weatherCode").equals("")){return;}
@@ -31,21 +32,26 @@ public class WeatherRefreshReceiver extends BroadcastReceiver{
 		@Override
 		protected String doInBackground(String... params) {
 			String[] result=NetworkHelper.HTTPGetWeather(db.getKey("weatherCode"));
-			while(result[0]==null){
+			int counter=10;
+			while(result[0]==null && counter>0){
 				try {
 					Thread.sleep(20000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				result=NetworkHelper.HTTPGetWeather(db.getKey("weatherCode"));
-				
+				counter--;
 			}
-			return result[1]+"，"+result[0];
+			if(result[0]==null){return null;}
+			//同步手表
+			new WearDataListener(c).sendWeatherData(result);
+			return result[4]+"，"+result[3];
 		}
 		
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
+			if(result==null){return ;}
 			//保存到数据库
 			db.saveWeather(result);
 			db.closeDB();

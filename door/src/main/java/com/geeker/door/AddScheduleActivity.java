@@ -40,6 +40,7 @@ import android.widget.Toast;
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 import com.geeker.door.alarm.AlarmReceiver;
+import com.geeker.door.alarm.NotificationReceiver;
 import com.geeker.door.businesslogic.AlarmService;
 import com.geeker.door.businesslogic.BoardService;
 import com.geeker.door.businesslogic.ScheduleService;
@@ -51,6 +52,7 @@ import com.geeker.door.renren.RenrenService;
 import com.geeker.door.ringtone.SelectRingtoneActivity;
 import com.geeker.door.utils.ExpandAnimation;
 import com.geeker.door.utils.MyViewGroup;
+import com.geeker.door.wear.WearDataListener;
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
@@ -273,6 +275,7 @@ public class AddScheduleActivity extends MyActionBarActivity {
 				}
 				if(reqCode<0){
 					reqCode=dbManager.saveMemo(content[0], contentString, calendarSchedule, calendarAlert, ringURI, volumeBar.getProgress(), companies, tags,switches,0);
+					addNotification(reqCode);
 				}
 				else{
 					dbManager.updateMemo(reqCode,content[0], contentString, calendarSchedule, calendarAlert, ringURI, volumeBar.getProgress(), companies, tags,switches);
@@ -289,6 +292,7 @@ public class AddScheduleActivity extends MyActionBarActivity {
 						}
 					});
 				}
+				new WearDataListener(AddScheduleActivity.this).sendMemoData();
 				finish();
 			}
 
@@ -300,7 +304,17 @@ public class AddScheduleActivity extends MyActionBarActivity {
 			}
 		});
 	}
-	
+
+	private void addNotification(int requestCode){
+		AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+		Intent intent = new Intent(getApplicationContext(),
+				NotificationReceiver.class);
+		calendarSchedule.set(Calendar.SECOND, 0);
+		intent.putExtra("requestcode", requestCode);
+		PendingIntent sender = PendingIntent.getBroadcast(getApplicationContext(), requestCode, intent,	PendingIntent.FLAG_CANCEL_CURRENT);
+		am.set(AlarmManager.RTC_WAKEUP,calendarSchedule.getTimeInMillis(), sender);
+	}
+
 	protected void addAlarm(String title) {
 		AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 		Intent intent = new Intent(getApplicationContext(),

@@ -951,23 +951,26 @@ public class DbManager {
 	}
 	
 	public String getCityCode(String cityName){
-		String fileName = "cityCode.txt";
+//		String fileName = "cityCode.txt";
 		try {
-			InputStream is = context.getAssets().open(fileName);
-			BufferedReader br = new BufferedReader(new InputStreamReader(is));
-			String s = "";
-			while((s=br.readLine()) != null){
-				s=s.trim();
-				String[] ss = s.split("=");
-				String cityCode = ss[0];
-				String Name = ss[1];
-				if(cityName.contains(Name)){
-					return cityCode;
-				}
+//			InputStream is = context.getAssets().open(fileName);
+//			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+//			String s = "";
+//			while((s=br.readLine()) != null){
+//				s=s.trim();
+//				String[] ss = s.split("=");
+//				String cityCode = ss[0];
+//				String Name = ss[1];
+//				if(cityName.contains(Name)){
+//					return cityCode;
+//				}
+//			}
+//		br.close();
+//		is.close();
+			if(cityName.endsWith("市")){
+				return cityName.substring(0,cityName.length()-1);
 			}
-		br.close();
-		is.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

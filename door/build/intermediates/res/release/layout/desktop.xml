@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/desktopLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+    <Button
+        android:id="@+id/testButton"
+        android:layout_width="60dip"
+        android:layout_height="40dip"
+        android:layout_alignParentRight="true"
+        android:text="添加" />
+
+	<EditText
+	    android:id="@+id/edittext"
+	    android:layout_width="match_parent"
+	    android:layout_height="40dip"
+	    android:layout_toLeftOf="@id/testButton"
+	    android:layout_alignBottom="@id/testButton"
+	    android:inputType="text"
+	    android:imeOptions="actionDone"
+	    android:hint="新任务" >
+
+	    <requestFocus />
+	</EditText>
+
+</RelativeLayout><!-- From: file:/C:/Users/Administrator.PC-20140203LGYQ/StudioProjects/door/door/src/main/res/layout/desktop.xml -->

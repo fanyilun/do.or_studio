@@ -12,10 +12,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.DataSetObserver;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,11 +50,16 @@ import com.geeker.door.database.RequestVO;
 import com.geeker.door.imgcache.ImageDownloader;
 import com.geeker.door.lock.WeatherRefreshReceiver;
 import com.geeker.door.network.NetworkHelper;
+import com.geeker.door.swipe.SwipeMenu;
+import com.geeker.door.swipe.SwipeMenuCreator;
+import com.geeker.door.swipe.SwipeMenuItem;
+import com.geeker.door.swipe.SwipeMenuListView;
 import com.geeker.door.utils.CustomAdapter;
 import com.geeker.door.utils.LocationUtils;
 import com.geeker.door.utils.MultiDirectionSlidingDrawer;
 import com.geeker.door.utils.PinnedHeaderListView;
 import com.geeker.door.utils.PinnedHeaderListView.OnRefreshListener;
+import com.geeker.door.wear.WearDataListener;
 
 public class PersonFragment extends Fragment {
 	
@@ -68,7 +78,7 @@ public class PersonFragment extends Fragment {
 	ProgressBar levelBar;
 	TextView timeText;
 	List<EventVO> events;
-	PinnedHeaderListView listView;
+	SwipeMenuListView listView;
 	private int listStatus;//0-7 0-3表示按添加时间排序的全部、闹钟、备忘、请求 4-7表示发生时间排序
 	TextView weatherText;
 	ImageView weatherIcon;
@@ -80,8 +90,9 @@ public class PersonFragment extends Fragment {
 			System.out.println("1:"+intent.getStringExtra("weather"));
 		}
 	};
-	
-	
+	Handler handler;
+	TextView hintText;
+
 	//定位专用
 	private String loc = null; // 保存定位信息
 	public LocationClient mLocationClient = null;
@@ -95,9 +106,11 @@ public class PersonFragment extends Fragment {
 		dbManager=new DbManager(getActivity());
 		boardService=new BoardService(getActivity());
 		View v = inflater.inflate(R.layout.person_board, null);
-		listView = (PinnedHeaderListView) v.findViewById(R.id.listview);
+		listView = (SwipeMenuListView) v.findViewById(R.id.listview);
+		hintText=(TextView)v.findViewById(R.id.person_hint);
 		View header=inflater.inflate(R.layout.board_title, null);
 		listView.addHeaderView(header);
+		handler=new Handler();
 		initHeader(header);
 		// * 创建新的HeaderView，即置顶的HeaderView
 		View HeaderView = inflater.inflate(R.layout.listview_item_header,
@@ -271,89 +284,101 @@ public class PersonFragment extends Fragment {
 
 	private void initListView() {
 		List<ItemEntity> data = createData();
-		CustomAdapter customAdapter = new CustomAdapter(getActivity().getApplication(), data);
+		final CustomAdapter customAdapter = new CustomAdapter(getActivity().getApplication(), data);
 		listView.setAdapter(customAdapter);
 		listView.setOnScrollListener(customAdapter);
 		//为listview添加Drawer
 		vibrator = (Vibrator) getActivity().getSystemService(getActivity().VIBRATOR_SERVICE);   
-		/*listView.setOnItemClickListener(new OnItemClickListener() {
-			
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-				if(position<1){return;}
-				EventVO event=events.get(position-1);
-				Class<?> cls = null;
-				switch (event.getType()) {
-				case EventVO.TYPE_ALARM:
-					cls=AddAlarmActivity.class;
-					break;
-				case EventVO.TYPE_SCHEDULE:
-					cls=AddScheduleActivity.class;
-					break;
-				case EventVO.TYPE_REQUEST:
-					cls=AddRequestActivity.class;
-					break;
-				}
-				Intent i=new Intent(getActivity(),cls);
-				i.putExtra("requestCode", event.getRequestCode());
-				getActivity().startActivity(i);
-			}
-		});*/
-		/*listView.setOnItemLongClickListener(new OnItemLongClickListener() {
 
-			@Override	
-			public boolean onItemLongClick(AdapterView<?> parent, View view,
-					final int position, long id) {
-				if(position<2){return false;}
-				vibrator.vibrate(200);
-				final Dialog dialog = new Dialog(getActivity(), R.style.MyDialog);
-				dialog.setContentView(R.layout.item_dialog);
-				TextView delete=(TextView)dialog.findViewById(R.id.delete);
-				delete.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						switch (events.get(position-2).getType()) {
-						case EventVO.TYPE_ALARM:
-							dbManager.deleteClock(events.get(position-2).getRequestCode());
-							break;
-						case EventVO.TYPE_SCHEDULE:
-							dbManager.deleteMemo(events.get(position-2).getRequestCode());
-							break;
-						case EventVO.TYPE_REQUEST:
-							dbManager.deleteRequest(events.get(position-2).getRequestCode());
-							break;
-						default:
-							break;
-						}
-						Toast.makeText(getActivity(), "已删除", Toast.LENGTH_SHORT).show();
-						refreshList();
-						dialog.dismiss();
-					}
-				});
-	             dialog.show();
-				return false;
-				
-			}
-		});*/
 		listView.setOnRefreshListener(new OnRefreshListener() {
-			
+
 			@Override
 			public void onRefresh(PinnedHeaderListView listView) {
 				new NewDataTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 				new GetExpTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 				new GetSignNumTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-				
+
 			}
 		});
-	}
+		SwipeMenuCreator creator = new SwipeMenuCreator() {
 
+			@Override
+			public void create(SwipeMenu menu) {
+				// create "delete" item
+				SwipeMenuItem deleteItem = new SwipeMenuItem(
+						getActivity());
+				// set item background
+				deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+						0x3F, 0x25)));
+				// set item width
+				deleteItem.setWidth(dip2px(getActivity(), 90));
+				// set a icon
+				deleteItem.setIcon(R.drawable.ic_delete);
+				// add to menu
+				menu.addMenuItem(deleteItem);
+				// create "delete" item
+				SwipeMenuItem finishItem = new SwipeMenuItem(
+						getActivity());
+				// set item background
+				finishItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+						0x3F, 0x25)));
+				// set item width
+				finishItem.setWidth(dip2px(getActivity(), 90));
+				// set a icon
+				finishItem.setIcon(R.drawable.ic_finish);
+				// add to menu
+				menu.addMenuItem(finishItem);
+			}
+		};
+		// set creator
+		listView.setMenuCreator(creator);
+		listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
+
+				switch (index) {
+					case 0:
+						customAdapter.deleteButton(position);
+						refreshList();
+						break;
+					case 1:
+						customAdapter.finishButton(position);
+						refreshList();
+						break;
+				}
+				return false;
+			}
+		});
+
+		// set SwipeListener
+		listView.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
+
+			@Override
+			public void onSwipeStart(int position) {
+				// swipe start
+			}
+
+			@Override
+			public void onSwipeEnd(int position) {
+				// swipe end
+			}
+		});
+
+
+	}
+	public static int dip2px(Context context, float dpValue) {
+
+		final float scale = context.getResources().getDisplayMetrics().density;
+
+		return (int) (dpValue * scale + 0.5f);
+
+	}
 	private void refreshList(){
 		List<ItemEntity> data = createData();
 		CustomAdapter customAdapter = new CustomAdapter(getActivity().getApplication(), data);
 		listView.setAdapter(customAdapter);
 	}
-	
+
 	private void initBottom(View v) {
 		int[] imageID=new int[]{R.id.imageView1,R.id.imageView2,R.id.imageView3,R.id.imageView4,R.id.imageView5,R.id.imageView6};
 		int[] textID=new int[]{R.id.textView1,R.id.textView2,R.id.textView3,R.id.textView4,R.id.textView5,
@@ -437,6 +462,11 @@ public class PersonFragment extends Fragment {
 				break;
 			}
 			data.add(new ItemEntity(eventVO.getDate(), content, subContent,eventVO.getTime(),eventVO.getType(),eventVO.getRequestCode()));
+		}
+		if(data.size()==0){
+			hintText.setVisibility(View.VISIBLE);
+		}else {
+			hintText.setVisibility(View.GONE);
 		}
 		return data;
 
@@ -655,7 +685,8 @@ public class PersonFragment extends Fragment {
 		protected String doInBackground(String... params) {
 			String[] result=NetworkHelper.HTTPGetWeather(dbManager.getKey("weatherCode"));
 			if(result[0]==null){return "暂无天气信息";}
-			return result[1]+"，"+result[0];
+			new WearDataListener(getActivity()).sendWeatherData(result);
+			return result[4]+"，"+result[3];
 		}
 		
 		@Override

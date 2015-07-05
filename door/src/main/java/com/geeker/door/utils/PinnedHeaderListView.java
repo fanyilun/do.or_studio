@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -241,6 +242,7 @@ public class PinnedHeaderListView extends ListView {
 
 	    @Override
 	    public boolean onInterceptTouchEvent(final MotionEvent ev) {
+			Log.v("","I have a choice!@");
 	    	if(mDrawer!=null &&mDrawer.isOpened()){
 				mDrawer.animateClose();
 				return true;
@@ -262,6 +264,7 @@ public class PinnedHeaderListView extends ListView {
 
 	    @Override
 	    public boolean onTouchEvent(final MotionEvent ev) {
+			Log.v("","I have a choice!2");
 	    	if(dragable){
 	        switch (ev.getAction()) {
 	            case MotionEvent.ACTION_MOVE:

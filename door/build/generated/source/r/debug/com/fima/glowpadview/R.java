@@ -8,22 +8,22 @@ package com.fima.glowpadview;
 
 public final class R {
 	public static final class attr {
-		public static final int alwaysTrackFinger = 0x7f010010;
-		public static final int directionDescriptions = 0x7f010006;
-		public static final int feedbackCount = 0x7f01000f;
-		public static final int glowRadius = 0x7f01000c;
-		public static final int handleDrawable = 0x7f010007;
-		public static final int innerRadius = 0x7f01000a;
-		public static final int jewelColor = 0x7f010003;
-		public static final int jewelOffset = 0x7f010002;
-		public static final int jewelRadius = 0x7f010001;
-		public static final int outerRadius = 0x7f01000b;
-		public static final int outerRingDrawable = 0x7f010008;
-		public static final int pointDrawable = 0x7f010009;
-		public static final int snapMargin = 0x7f01000e;
-		public static final int targetDescriptions = 0x7f010005;
-		public static final int targetDrawables = 0x7f010004;
-		public static final int vibrationDuration = 0x7f01000d;
+		public static final int alwaysTrackFinger = 0x7f010014;
+		public static final int directionDescriptions = 0x7f01000a;
+		public static final int feedbackCount = 0x7f010013;
+		public static final int glowRadius = 0x7f010010;
+		public static final int handleDrawable = 0x7f01000b;
+		public static final int innerRadius = 0x7f01000e;
+		public static final int jewelColor = 0x7f010006;
+		public static final int jewelOffset = 0x7f010005;
+		public static final int jewelRadius = 0x7f010004;
+		public static final int outerRadius = 0x7f01000f;
+		public static final int outerRingDrawable = 0x7f01000c;
+		public static final int pointDrawable = 0x7f01000d;
+		public static final int snapMargin = 0x7f010012;
+		public static final int targetDescriptions = 0x7f010009;
+		public static final int targetDrawables = 0x7f010008;
+		public static final int vibrationDuration = 0x7f010011;
 	}
 	public static final class dimen {
 		public static final int glowpadview_glow_radius = 0x7f070022;
@@ -35,20 +35,20 @@ public final class R {
 		public static final int glowpadview_target_placement_radius = 0x7f070028;
 	}
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f020052;
-		public static final int ic_lockscreen_glowdot = 0x7f020053;
-		public static final int ic_lockscreen_handle_normal = 0x7f020054;
-		public static final int ic_lockscreen_handle_pressed = 0x7f020055;
+		public static final int ic_launcher = 0x7f02006e;
+		public static final int ic_lockscreen_glowdot = 0x7f02006f;
+		public static final int ic_lockscreen_handle_normal = 0x7f020070;
+		public static final int ic_lockscreen_handle_pressed = 0x7f020071;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f06000e;
+		public static final int app_name = 0x7f06002f;
 	}
 	public static final class styleable {
-		public static final int[] AnalogClock = { 0x7f010001, 0x7f010002, 0x7f010003 };
+		public static final int[] AnalogClock = { 0x7f010004, 0x7f010005, 0x7f010006 };
 		public static final int AnalogClock_jewelColor = 2;
 		public static final int AnalogClock_jewelOffset = 1;
 		public static final int AnalogClock_jewelRadius = 0;
-		public static final int[] GlowPadView = { 0x010100af, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010 };
+		public static final int[] GlowPadView = { 0x010100af, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014 };
 		public static final int GlowPadView_alwaysTrackFinger = 13;
 		public static final int GlowPadView_android_gravity = 0;
 		public static final int GlowPadView_directionDescriptions = 3;

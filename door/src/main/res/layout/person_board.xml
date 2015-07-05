@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     >
     
-    <com.geeker.door.utils.PinnedHeaderListView
+    <com.geeker.door.swipe.SwipeMenuListView
 	    android:id="@+id/listview" 
 	    android:layout_width="fill_parent"
 	    android:footerDividersEnabled="false"
@@ -12,7 +12,15 @@
 	    android:layout_height="match_parent"
 	    android:layout_marginBottom="15dp"
 	    />
-   
+    <TextView
+        android:id="@+id/person_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击右上方加号添加闹钟/备忘"
+        android:layout_centerInParent="true"
+        android:textColor="@color/gray"
+        android:visibility="gone"
+        />
      <com.geeker.door.utils.MultiDirectionSlidingDrawer
         xmlns:my="http://schemas.android.com/apk/res/com.geeker.door"
         android:id="@+id/drawer"
