@@ -73,29 +73,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/radiobutton_bg" />
 
-    <LinearLayout
-        android:id="@+id/request"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:clickable="true"
- 	    android:background="@drawable/button_bg_selector"
-        android:padding="6dp" >
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/add_request" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="15dp"
-            android:gravity="center"
-            android:text="请求"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-    </LinearLayout>
 
 </LinearLayout>

@@ -225,11 +225,24 @@ public class PinnedHeaderListView extends ListView {
 	    }
 	    //设置能否下拉刷新
 	    public void setDragable(boolean isDragable){
-	    	dragable=isDragable;
-	    	if(!isDragable){
+
+	    	if(!isDragable && dragable!=isDragable){
 	    	removeHeaderView(mHeaderContainer);
 	    	}
+//			if(isDragable && dragable!=isDragable){
+//				Log.v("","add Header!");
+//
+//				addHeaderView(mHeaderContainer);
+//			}
+
+			dragable=isDragable;
 	    }
+
+	public void setDragable2(boolean isDragable){
+		dragable=isDragable;
+
+	}
+
 
 	    //完成刷新
 	    public void completeRefreshing() {
@@ -242,12 +255,11 @@ public class PinnedHeaderListView extends ListView {
 
 	    @Override
 	    public boolean onInterceptTouchEvent(final MotionEvent ev) {
-			Log.v("","I have a choice!@");
 	    	if(mDrawer!=null &&mDrawer.isOpened()){
 				mDrawer.animateClose();
 				return true;
 			}
-	    	if(dragable){
+//	    	if(dragable){
 	        switch (ev.getAction()) {
 	            case MotionEvent.ACTION_DOWN:
 	                mHandler.removeMessages(REFRESH);
@@ -258,45 +270,49 @@ public class PinnedHeaderListView extends ListView {
 	                }
 	                break;
 	        }
-	    	}
+//	    	}
 	        return super.onInterceptTouchEvent(ev);
 	    }
 
 	    @Override
 	    public boolean onTouchEvent(final MotionEvent ev) {
-			Log.v("","I have a choice!2");
-	    	if(dragable){
 	        switch (ev.getAction()) {
 	            case MotionEvent.ACTION_MOVE:
-	                mHistoricalTop = getChildAt(0).getTop();
+					if(dragable) {
+						mHistoricalTop = getChildAt(0).getTop();
+					}
 	                break;
 	            case MotionEvent.ACTION_UP:
+					Log.v("","up1");
 	                if (!mIsRefreshing) {
+						Log.v("","up2");
 	                    if (mArrowUp) {
+							Log.v("","up3");
 	                        startRefreshing();
 	                        mHandler.sendMessage(mHandler.obtainMessage(REFRESH, (int) (ev.getY() - mY)
 	                                / 2 + mInitialHeight, 0));
 	                    } else {
+							Log.v("","up4");
 	                        if (getChildAt(0).getTop() == 0) {
 	                            mHandler.sendMessage(mHandler.obtainMessage(NORMAL,
 	                                    (int) (ev.getY() - mY) / 2 + mInitialHeight, 0));
 	                        }
 	                    }
 	                } else {
+						Log.v("","up5");
 	                    mHandler.sendMessage(mHandler.obtainMessage(REFRESH, (int) (ev.getY() - mY) / 2
 	                            + mInitialHeight, 0));
 	                }
 	                mFlag = false;
 	                break;
 	        }
-	    	}
+
 	        return super.onTouchEvent(ev);
 	    }
 
 	    @Override
 	    public boolean dispatchTouchEvent(final MotionEvent ev) {
 	        if (ev.getAction() == MotionEvent.ACTION_MOVE && getFirstVisiblePosition() == 0 && dragable) {
-	        	System.out.println("a");
 	            float direction = ev.getY() - mHistoricalY;
 	            int height = (int) (ev.getY() - mY) / 2 + mInitialHeight;
 	            if (height < 0) {
@@ -458,7 +474,7 @@ public class PinnedHeaderListView extends ListView {
 	        @Override
 	        public void handleMessage(final Message msg) {
 	            super.handleMessage(msg);
-	            if(!dragable){return;}
+//	            if(!dragable){return;}
 	            int limit = 0;
 	            switch (msg.what) {
 	                case REFRESH:

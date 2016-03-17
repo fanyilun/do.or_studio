@@ -5,6 +5,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -40,6 +41,8 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 	private Interpolator mCloseInterpolator;
 	private Interpolator mOpenInterpolator;
 
+	private GestureDetector gestureDetector;
+
 	public SwipeMenuListView(Context context) {
 		super(context);
 		init();
@@ -59,6 +62,7 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 		MAX_X = dp2px(MAX_X);
 		MAX_Y = dp2px(MAX_Y);
 		mTouchState = TOUCH_STATE_NONE;
+		gestureDetector = new GestureDetector(new YScrollDetector());
 	}
 
 	@Override
@@ -104,21 +108,30 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
+//		return false;
 		return super.onInterceptTouchEvent(ev);
+	}
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+			if (gestureDetector.onTouchEvent(ev)) {
+				if(mTouchState!=TOUCH_STATE_X)
+				setDragable2(true);
+			} else {
+				setDragable2(false);
+			}
+				return super.dispatchTouchEvent(ev);
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
 		if (ev.getAction() != MotionEvent.ACTION_DOWN && mTouchView == null) {
-			Log.v("", "return here!");
 				return super.onTouchEvent(ev);
 		}
 		int action = MotionEventCompat.getActionMasked(ev);
 		action = ev.getAction();
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
-			Log.v("", "ACTION_DOWN");
-
 			int oldPos = mTouchPosition;
 			mDownX = ev.getX();
 			mDownY = ev.getY();
@@ -127,7 +140,7 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 			mTouchPosition = pointToPosition((int) ev.getX(), (int) ev.getY());
 			// IMPORTANT! disallow viewpager's intercept! REMENBER to change mTouchPosition
 			if(mTouchPosition > 1 ) {
-				Log.v("", "parent disallow");
+
 				getParent().requestDisallowInterceptTouchEvent(true);
 			}
 			if (mTouchPosition == oldPos && mTouchView != null
@@ -157,7 +170,7 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 			}
 			break;
 		case MotionEvent.ACTION_MOVE:
-			Log.v("", "ACTION_MOVE");
+
 			float dy = Math.abs((ev.getY() - mDownY));
 			float dx = Math.abs((ev.getX() - mDownX));
 			if (mTouchState == TOUCH_STATE_X) {
@@ -181,7 +194,7 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 			break;
 		case MotionEvent.ACTION_UP:
 			if(mTouchPosition > 1 ) {
-				Log.v("", "parent allow");
+
 				getParent().requestDisallowInterceptTouchEvent(false);
 			}
 
@@ -246,5 +259,21 @@ public class SwipeMenuListView extends PinnedHeaderListView {
 		void onSwipeStart(int position);
 
 		void onSwipeEnd(int position);
+	}
+	// Return false if we're scrolling in the x direction
+	class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
+		@Override
+		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+			try {
+				if (Math.abs(distanceY) > Math.abs(distanceX)) {
+					return true;
+				} else {
+					return false;
+				}
+			} catch (Exception e) {
+				// nothing
+			}
+			return false;
+		}
 	}
 }

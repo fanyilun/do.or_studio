@@ -17,8 +17,8 @@
             android:background="@drawable/button_bg_selector"
             >
             <ImageView 
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginLeft="8dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/sign"/>
@@ -26,10 +26,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="签到"
+                android:text=" 签到"
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/white"
-                android:textSize="19sp"
+                android:textSize="16sp"
                 />
         </LinearLayout>
         <TextView 

@@ -129,10 +129,13 @@ public class MyLockService extends Service implements Runnable{
     	 if(mKeyguardLock==null){
      	mKeyguardLock = mKeyguardManager.newKeyguardLock("com.geeker.door.lock");
     	 }
-     	if(bEnable)
-     		mKeyguardLock.reenableKeyguard();
-     	else
-     		mKeyguardLock.disableKeyguard();
+		 try {
+			 if (bEnable) {
+				 mKeyguardLock.reenableKeyguard();
+			 } else {
+				 mKeyguardLock.disableKeyguard();
+			 }
+		 }catch (Exception e){}
      }
 
 	@Override

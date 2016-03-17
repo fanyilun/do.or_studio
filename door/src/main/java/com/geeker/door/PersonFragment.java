@@ -82,6 +82,7 @@ public class PersonFragment extends Fragment {
 	private int listStatus;//0-7 0-3表示按添加时间排序的全部、闹钟、备忘、请求 4-7表示发生时间排序
 	TextView weatherText;
 	ImageView weatherIcon;
+	CustomAdapter customAdapter;
 	private BoardService boardService;
 	private BroadcastReceiver receiver1=new BroadcastReceiver() {
 		@Override
@@ -284,7 +285,7 @@ public class PersonFragment extends Fragment {
 
 	private void initListView() {
 		List<ItemEntity> data = createData();
-		final CustomAdapter customAdapter = new CustomAdapter(getActivity().getApplication(), data);
+		customAdapter = new CustomAdapter(getActivity().getApplication(), data);
 		listView.setAdapter(customAdapter);
 		listView.setOnScrollListener(customAdapter);
 		//为listview添加Drawer
@@ -320,8 +321,8 @@ public class PersonFragment extends Fragment {
 				SwipeMenuItem finishItem = new SwipeMenuItem(
 						getActivity());
 				// set item background
-				finishItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-						0x3F, 0x25)));
+				finishItem.setBackground(new ColorDrawable(Color.rgb(0x7c,
+						0xfc, 0x00)));
 				// set item width
 				finishItem.setWidth(dip2px(getActivity(), 90));
 				// set a icon
@@ -363,7 +364,12 @@ public class PersonFragment extends Fragment {
 				// swipe end
 			}
 		});
-
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				customAdapter.clickItem(i-2);
+			}
+		});
 
 	}
 	public static int dip2px(Context context, float dpValue) {
@@ -375,7 +381,7 @@ public class PersonFragment extends Fragment {
 	}
 	private void refreshList(){
 		List<ItemEntity> data = createData();
-		CustomAdapter customAdapter = new CustomAdapter(getActivity().getApplication(), data);
+		customAdapter = new CustomAdapter(getActivity().getApplication(), data);
 		listView.setAdapter(customAdapter);
 	}
 

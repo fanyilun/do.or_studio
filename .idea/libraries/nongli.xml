@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="nongli">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/door/libs/nongli.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

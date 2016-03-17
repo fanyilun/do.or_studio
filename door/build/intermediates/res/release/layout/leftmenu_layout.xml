@@ -158,24 +158,6 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/white_bg" />
 
-            <TextView
-                android:id="@+id/leftmenu_chengjiu_textview"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="18dp"
-                android:clickable="true"
-                android:gravity="center_horizontal"
-                android:text="成就中心"
-                android:textColor="@color/whitecolor_selector"
-                android:textSize="19sp" />
-
-            <ImageView
-                android:layout_width="180dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
-                android:src="@drawable/white_bg" />
 
             <TextView
                 android:id="@+id/leftmenu_logout_textview"

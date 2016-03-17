@@ -248,6 +248,27 @@ public class CustomAdapter extends BaseAdapter
 		return 0;
 	}
 
+	public void clickItem(int index){
+		if(index>=mData.size() || index<0){return;}
+				ItemEntity event=mData.get(index);
+				Class<?> cls = null;
+				switch (event.getType()) {
+				case EventVO.TYPE_ALARM:
+					cls=AddAlarmActivity.class;
+					break;
+				case EventVO.TYPE_SCHEDULE:
+					cls=AddScheduleActivity.class;
+					break;
+				case EventVO.TYPE_REQUEST:
+					cls=AddRequestActivity.class;
+					break;
+				}
+				Intent i=new Intent(mContext,cls);
+				i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				i.putExtra("requestCode", event.getRequestCode());
+				mContext.startActivity(i);
+	}
+
 	public void deleteButton(int position){
 		ItemEntity itemEntity = (ItemEntity) getItem(position);
 		new DeleteEventTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,

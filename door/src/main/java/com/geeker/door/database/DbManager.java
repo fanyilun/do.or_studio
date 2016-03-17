@@ -603,16 +603,21 @@ public class DbManager {
 	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<EventVO> getEventCodeByAddTime(){
-		ArrayList<EventVO> clockVos = getClockBySaveTime();
-		ArrayList<EventVO> memoVos  = getMemoBySaveTime();
-		ArrayList<EventVO> requestVos = getRequestBySaveTime();
-		ArrayList<EventVO> result = new ArrayList<EventVO>();
-		result.addAll(clockVos);
-		result.addAll(memoVos);
-		result.addAll(requestVos);
-		Collections.sort(result);//????
-		Collections.reverse(result);//????
-		return result;
+		try {
+			ArrayList<EventVO> clockVos = getClockBySaveTime();
+			ArrayList<EventVO> memoVos = getMemoBySaveTime();
+			ArrayList<EventVO> requestVos = getRequestBySaveTime();
+			ArrayList<EventVO> result = new ArrayList<EventVO>();
+			result.addAll(clockVos);
+			result.addAll(memoVos);
+			result.addAll(requestVos);
+			Collections.sort(result);//????
+			Collections.reverse(result);//????
+			return result;
+		}catch (Exception e){
+			return new ArrayList<EventVO>();
+		}
+
 	}
 	
 	
@@ -683,7 +688,10 @@ public class DbManager {
 		while(cursor.moveToNext()){
 			list.add(cursor.getInt(cursor.getColumnIndex("requestCode")));
 		}
-		cursor.close();
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		for (int i = 10; i <= list.size()+10; i++) {
 			boolean repeat=false;
 			for (Integer integer : list) {
@@ -711,6 +719,10 @@ public class DbManager {
 		}
 		Collections.sort(vos);
 		Collections.reverse(vos);
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		return vos;
 	}
 	
@@ -732,6 +744,10 @@ public class DbManager {
 		}
 		Collections.sort(vos);
 		Collections.reverse(vos);
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		return vos;
 	}
 	
@@ -753,6 +769,10 @@ public class DbManager {
 		}
 		Collections.sort(vos);
 		Collections.reverse(vos);
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		return vos;
 	}
 	
@@ -796,6 +816,10 @@ public class DbManager {
 		}
 		System.out.println("size="+result.size());
 		Collections.sort(result);
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		return result;
 	}
 	
@@ -815,6 +839,10 @@ public class DbManager {
 			
 		}
 		Collections.sort(vos);
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		return vos;
 	}
 	
@@ -832,6 +860,10 @@ public class DbManager {
 			}
 		}
 		Collections.sort(vos);
+		if(cursor != null && !cursor.isClosed()){
+
+			cursor.close();
+		}
 		return vos;
 	}
 	
@@ -840,6 +872,7 @@ public class DbManager {
 		Editor editor = preferences.edit();
 		editor.putString("weather", weather);
 		editor.commit();
+
 	}
  
 	public String getWeather(){
@@ -930,6 +963,10 @@ public class DbManager {
 		
 		if(cursor.moveToFirst()){
 			int eventID = cursor.getInt(cursor.getColumnIndex("onlineID"));
+			if(cursor != null && !cursor.isClosed()){
+
+				cursor.close();
+			}
 			return eventID;
 		}
 		return 0;

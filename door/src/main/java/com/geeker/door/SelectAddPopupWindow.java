@@ -59,7 +59,7 @@ public class SelectAddPopupWindow extends PopupWindow {
 		});
 		LinearLayout clock=(LinearLayout)mMenuView.findViewById(R.id.clock);
 		LinearLayout schedule=(LinearLayout)mMenuView.findViewById(R.id.schedule);
-		LinearLayout request=(LinearLayout)mMenuView.findViewById(R.id.request);
+//		LinearLayout request=(LinearLayout)mMenuView.findViewById(R.id.request);
 		clock.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -80,15 +80,15 @@ public class SelectAddPopupWindow extends PopupWindow {
 				dismiss();
 			}
 		});
-		request.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i=new Intent(context,AddRequestActivity.class);
-				i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-				context.startActivity(i);
-				context.overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
-				dismiss();
-			}
-		});
+//		request.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Intent i=new Intent(context,AddRequestActivity.class);
+//				i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//				context.startActivity(i);
+//				context.overridePendingTransition(R.anim.push_right_in, R.anim.push_left_out);
+//				dismiss();
+//			}
+//		});
 	}
 }

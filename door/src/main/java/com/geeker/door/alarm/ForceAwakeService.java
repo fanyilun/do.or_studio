@@ -86,11 +86,13 @@ public class ForceAwakeService extends Service implements Runnable,SensorEventLi
 		if (sensorType == Sensor.TYPE_ACCELEROMETER) {
 			if (Math.abs(values[0]) > 3 || Math.abs(values[1]) > 3 ) {
 				Toast.makeText(ForceAwakeService.this, Math.abs(values[0])+" "+Math.abs(values[1])+" "+Math.abs(values[2]), Toast.LENGTH_LONG).show();
-				System.out.println(Math.abs(values[0])+" "+Math.abs(values[1])+" "+Math.abs(values[2]));
+				System.out.println(Math.abs(values[0]) + " " + Math.abs(values[1]) + " " + Math.abs(values[2]));
 				finished=true;
 				mSensorManager.unregisterListener(this);
-				new FinishAlarmTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,String.valueOf(new DbManager(ForceAwakeService.this).getEventID(EventVO.TYPE_ALARM, intent.getIntExtra("requestcode", -1))));
-				new DbManager(ForceAwakeService.this).deleteClock(intent.getIntExtra("requestcode", -1));
+				try {
+					new FinishAlarmTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, String.valueOf(new DbManager(ForceAwakeService.this).getEventID(EventVO.TYPE_ALARM, intent.getIntExtra("requestcode", -1))));
+					new DbManager(ForceAwakeService.this).deleteClock(intent.getIntExtra("requestcode", -1));
+				}catch (Exception e){}
 				stopSelf();
 			}
 		}

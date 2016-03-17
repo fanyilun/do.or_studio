@@ -196,7 +196,7 @@ public class MainActivity extends MyActionBarActivity {
 		TextView name=(TextView) findViewById(R.id.leftmenu_username_textview);
 		TextView friend=(TextView) findViewById(R.id.friend_manage_text);
 		TextView quit=(TextView) findViewById(R.id.leftmenu_logout_textview);
-		TextView achievement=(TextView) findViewById(R.id.leftmenu_chengjiu_textview);
+//		TextView achievement=(TextView) findViewById(R.id.leftmenu_chengjiu_textview);
 		levelText=(TextView) findViewById(R.id.leftmenu_level_textview);
 		signing=(TextView) findViewById(R.id.leftmenu_signing_textview);
 		levelBar=(ProgressBar) findViewById(R.id.leftmenu_progressBar);
@@ -240,46 +240,7 @@ public class MainActivity extends MyActionBarActivity {
 			}
 		});
 
-		achievement.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-//				new AlertDialog.Builder(MainActivity.this).setTitle("成就中心").setMessage("由于美工罢工，此项功能尚未开发")
-//		          .setNegativeButton("美工是大坏蛋", new DialogInterface.OnClickListener() {
-//		              public void onClick(DialogInterface dialog, int which) {
-//		              }
-//		          })
-//		          .show();
-				handler.postDelayed(new Runnable() {
-					@Override
-					public void run() {
-						Intent i=new Intent(MainActivity.this,MainActivity.class);
-						PendingIntent mapPendingIntent =
-								PendingIntent.getActivity(MainActivity.this, 0, i, 0);
 
-						NotificationCompat.WearableExtender wearableExtender = new NotificationCompat.WearableExtender()
-								.setHintShowBackgroundOnly(true);
-						Bitmap bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.board_title)).getBitmap();
-						NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(MainActivity.this)
-								.setSmallIcon(R.drawable.ic_launcher)
-								.setLargeIcon(bitmap)
-								.setContentTitle("Request text")
-								.setContentText("Speak something then your phone will search it.")
-								.setDefaults(Notification.DEFAULT_ALL)
-								.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000, 1000})
-								.addAction(R.drawable.ic_launcher,
-										"finish", mapPendingIntent)
-								.addAction(R.drawable.ic_launcher,
-										"delete", mapPendingIntent)
-								.extend(wearableExtender);
-
-						NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
-						notificationManager.notify(0, notificationBuilder.build());
-					}
-				}, 3000);
-
-			}
-		});
 		mDrawerLayout.closeDrawers();
 		String url=dbManager.getKey("headURL");
 		if(url!=null && !url.equals("null")){
